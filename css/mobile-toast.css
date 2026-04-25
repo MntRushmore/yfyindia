@@ -1,0 +1,134 @@
+/* ═══════════════════════════════════════════════
+   Mobile Toast — "Use desktop for best experience"
+   Only visible on screens ≤ 768px
+   ═══════════════════════════════════════════════ */
+
+.mobile-toast-overlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-toast-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    pointer-events: none;
+  }
+
+  .mobile-toast {
+    position: fixed;
+    top: 24px;
+    right: -400px;
+    width: calc(100vw - 32px);
+    max-width: 380px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.12),
+      0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 16px 18px 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    z-index: 99999;
+    pointer-events: auto;
+    transition: right 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+  }
+
+  .mobile-toast.show {
+    right: 16px;
+  }
+
+  .mobile-toast.hide {
+    right: -400px;
+    transition: right 0.4s cubic-bezier(0.6, 0, 0.7, 0.2);
+  }
+
+  /* Icon */
+  .mobile-toast-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-toast-icon svg {
+    width: 20px;
+    height: 20px;
+    color: #333;
+  }
+
+  /* Text */
+  .mobile-toast-text {
+    flex: 1;
+    font-family: 'rader', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13.5px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #1a1a1a;
+    letter-spacing: -0.01em;
+  }
+
+  /* Close button */
+  .mobile-toast-close {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+    padding: 0;
+    margin-left: auto;
+  }
+
+  .mobile-toast-close:hover,
+  .mobile-toast-close:active {
+    background: #f0f0f0;
+  }
+
+  .mobile-toast-close svg {
+    width: 16px;
+    height: 16px;
+    color: #999;
+  }
+
+  /* Progress bar */
+  .mobile-toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #333 0%, #666 100%);
+    border-radius: 0 0 14px 14px;
+    width: 100%;
+    transform-origin: left;
+    animation: toastProgress 5s linear forwards;
+  }
+
+  .mobile-toast.hide .mobile-toast-progress {
+    animation: none;
+  }
+
+  @keyframes toastProgress {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0%;
+    }
+  }
+}

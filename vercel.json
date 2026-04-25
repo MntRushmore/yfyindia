@@ -1,0 +1,15 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/work", "destination": "/work.html" },
+    { "source": "/artworks", "destination": "/artworks.html" },
+    { "source": "/project", "destination": "/project.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/hare-krishna", "destination": "/hare-krishna.html" },
+    { "source": "/radhe-radhe", "destination": "/radhe-radhe.html" },
+    { "source": "/radhe-krishna", "destination": "/radhe-krishna.html" },
+    { "source": "/jai-shree-krishna", "destination": "/jai-shree-krishna.html" }
+  ]
+}

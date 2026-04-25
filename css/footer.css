@@ -1,0 +1,134 @@
+/* footer */
+footer {
+  position: relative;
+  width: 100vw;
+  height: 85svh;
+  color: var(--bg);
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+footer .footer-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--fg);
+  padding: 2em;
+  border-radius: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+footer .footer-header {
+  position: relative;
+  text-align: center;
+}
+
+footer .footer-row {
+  display: flex;
+  gap: 2em;
+  margin-bottom: 8em;
+}
+
+footer .footer-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+footer .footer-col a,
+footer .copyright-info a {
+  color: var(--bg);
+}
+
+footer .footer-col p:not(:first-child) {
+  opacity: 0.35;
+}
+
+footer .footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  margin-bottom: 1em;
+}
+
+footer .footer-social a {
+  color: var(--bg);
+  opacity: 0.5;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s ease;
+}
+
+footer .footer-social a:hover {
+  opacity: 1;
+}
+
+footer .copyright-info {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+footer .footer-symbols {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .footer-symbols img {
+  width: auto;
+  height: 1rem;
+}
+
+footer .footer-symbols-1 {
+  top: 0;
+}
+
+footer .footer-symbols-2 {
+  bottom: 0;
+}
+
+
+
+@media (max-width: 1000px) {
+  footer {
+    height: 100svh;
+  }
+
+  footer .copyright-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5em;
+  }
+
+  footer .copyright-info p:nth-child(2) {
+    display: none;
+  }
+
+  footer .footer-row {
+    flex-direction: column;
+    margin-bottom: 2em;
+  }
+
+  footer .footer-row .footer-col:nth-child(2),
+  footer .footer-row .footer-col:nth-child(4) {
+    display: none;
+  }
+
+
+}

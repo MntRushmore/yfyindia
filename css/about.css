@@ -1,0 +1,326 @@
+/* about - hero */
+.about-hero {
+  position: relative;
+  width: 100vw;
+  min-height: 100svh;
+  padding: 12em 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent1);
+  color: var(--bg);
+  overflow: hidden;
+}
+
+.about-hero .about-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2em;
+  max-width: 700px;
+}
+
+.about-hero .about-hero-content h1 {
+  font-size: 7.5rem;
+}
+
+/* about - about copy */
+.about-copy {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  padding: 8em 2em 8em 2em;
+}
+
+.about-copy .about-copy-content {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--accent1);
+  color: var(--bg);
+  border: 0.25em solid var(--fg);
+  border-radius: 1em;
+  padding: 3em 2em;
+  gap: 2em;
+}
+
+.about-copy .about-copy-content h3 {
+  font-weight: 400;
+}
+
+.about-copy .about-copy-content h3 span {
+  font-weight: 900;
+}
+
+.about-copy .tag {
+  position: absolute;
+  width: max-content;
+  background-color: var(--fg);
+  border-radius: 0.5em;
+}
+
+.about-copy .tag p {
+  text-transform: uppercase;
+  color: var(--bg);
+  font-size: 1rem;
+  padding: 0.75em 0.5em 0.5em 0.5em;
+}
+
+.about-copy #tag-1 {
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%) rotate(20deg);
+}
+
+.about-copy #tag-2 {
+  top: 65%;
+  left: 10%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.about-copy #tag-3 {
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%) rotate(5deg);
+}
+
+.about-copy #tag-4 {
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.about-copy #tag-5 {
+  top: 100%;
+  left: 80%;
+  transform: translate(-50%, -50%) rotate(-60deg);
+}
+
+/* about - skills */
+.skills {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 4em 2em 4em 2em;
+}
+
+.skills .skills-copy {
+  margin: 0 auto;
+  padding: 2em;
+  width: max-content;
+  text-align: center;
+  border: 0.2em dashed var(--fg);
+  border-radius: 1em;
+}
+
+/* about - stats */
+.stats {
+  padding: 8em 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.stats .stats-row {
+  display: flex;
+  gap: 2em;
+}
+
+.stats .stats-header {
+  flex: 1;
+}
+
+.stats .stats-item-1 {
+  flex: 1;
+  background-color: var(--accent1);
+  color: var(--bg);
+}
+
+.stats .stats-item-2 {
+  flex: 3;
+  background-color: var(--accent3);
+  color: var(--fg);
+}
+
+.stats .stats-item-3 {
+  flex: 2;
+  background-color: var(--fg);
+  color: var(--bg);
+}
+
+.stats .stats-item-1,
+.stats .stats-item-2,
+.stats .stats-item-3 {
+  aspect-ratio: 16/7;
+  padding: 2em;
+  border-radius: 1em;
+}
+
+.stats .stats-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* about - team */
+.team {
+  padding: 8em 2em;
+  border-top: 0.15em solid var(--fg);
+}
+
+.team .team-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  margin-bottom: 3em;
+}
+
+.team .team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2em;
+}
+
+.team .team-member {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 2em;
+  border: 0.15em solid var(--fg);
+  border-radius: 1em;
+}
+
+.team .team-name {
+  font-family: "rader";
+  font-style: italic;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.team .team-role {
+  opacity: 0.6;
+}
+
+
+/* partners ticker */
+.partners {
+  padding: 6em 0;
+  overflow: hidden;
+  border-top: 0.15em solid var(--fg);
+  border-bottom: 0.15em solid var(--fg);
+  background-color: var(--accent1);
+  color: var(--bg);
+}
+
+.partners .partners-header {
+  text-align: center;
+  margin-bottom: 2em;
+  opacity: 0.75;
+}
+
+.partners-ticker-wrap {
+  overflow: hidden;
+  width: 100%;
+}
+
+.partners-ticker {
+  display: flex;
+  gap: 2em;
+  white-space: nowrap;
+  animation: tickerScroll 18s linear infinite;
+  width: max-content;
+}
+
+.partners-ticker span {
+  font-family: "rader";
+  font-style: italic;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.partners-ticker .ticker-dot {
+  font-size: 2rem;
+  opacity: 0.5;
+  align-self: center;
+}
+
+@keyframes tickerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.partners.partners-dark {
+  background-color: var(--fg);
+  color: var(--bg);
+  border-top-color: var(--bg);
+  border-bottom-color: var(--bg);
+}
+
+.partners .partners-thankyou {
+  max-width: 600px;
+  margin: 3em auto 0;
+  text-align: center;
+  padding: 0 2em;
+  opacity: 0.85;
+}
+
+.partners .partners-thankyou p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.partners .partners-thankyou strong {
+  font-weight: 700;
+}
+
+@media (max-width: 1000px) {
+  .about-hero {
+    padding: 8em 2em;
+  }
+
+  .about-hero .about-hero-content h1 {
+    font-size: 4rem;
+  }
+
+  .about-copy .about-copy-content {
+    width: 100%;
+  }
+
+  .about-copy .about-copy-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .about-copy .tag {
+    display: none;
+  }
+
+  .skills .skills-copy {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    border: none;
+    border-radius: 0;
+  }
+
+  .stats .stats-row {
+    flex-direction: column;
+  }
+
+  .stats .stats-col {
+    width: 100%;
+    text-align: center;
+    gap: 4em;
+  }
+
+  .stats .stats-header {
+    gap: 2em;
+    margin-bottom: 2em;
+  }
+}

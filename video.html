@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youth for Yoga — Cinematic Film</title>
+  <link rel="icon" href="/images/logo.png" />
+
+  <!-- Base styles for typography, colors, fonts -->
+  <link rel="stylesheet" href="/css/fonts.css" />
+  <link rel="stylesheet" href="/css/globals.css" />
+
+  <!-- Video chrome -->
+  <link rel="stylesheet" href="/css/video.css" />
+
+  <style>
+    html, body {
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      background: var(--bg);
+    }
+
+    /* The full-screen stage that video.js fills with scene divs */
+    #film-stage {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Cinematic chrome ── -->
+  <div class="lb-top"></div>
+  <div class="lb-bottom"></div>
+  <div class="video-grain"></div>
+  <div class="video-vignette"></div>
+
+  <!-- Scene label top-left -->
+  <div class="scene-label">Youth for Yoga</div>
+
+  <!-- FILM badge top-right -->
+  <div class="video-badge">
+    <div class="badge-dot"></div>
+    <span class="badge-label">Film</span>
+  </div>
+
+  <!-- Back link -->
+  <a class="video-back" href="/">← Back to site</a>
+
+  <!-- Replay overlay -->
+  <button class="vp-replay">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right:0.4em">
+      <path d="M17.65 6.35A7.958 7.958 0 0 0 12 4C7.58 4 4.01 7.58 4.01 12S7.58 20 12 20c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+    </svg>
+    Watch again
+  </button>
+
+  <!-- Click to play hint -->
+  <div class="vp-hint" id="vp-hint">
+    <div class="hint-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+    <span class="hint-text">Click anywhere to play</span>
+  </div>
+
+  <!-- ── Bottom controls ── -->
+  <div class="video-controls">
+    <div class="vp-track">
+      <div class="vp-fill"></div>
+      <div class="vp-knob"></div>
+    </div>
+    <div class="vp-row">
+      <button class="vp-playbtn" aria-label="Play / Pause">
+        <svg class="vp-icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="vp-icon-pause" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </button>
+      <div class="vp-time-wrap">
+        <span class="vp-time">0:00</span>
+        <span class="vp-time-sep">/</span>
+        <span class="vp-time-total">1:24</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Film stage: video.js builds all scene divs here ── -->
+  <div id="film-stage"></div>
+
+  <!-- Music -->
+  <audio id="music-audio" preload="auto" src="/audio/SHRI-KRISHNA-GOVIND-HARE-MURARI.mp3"></audio>
+
+  <script type="module" src="/js/video.js"></script>
+
+</body>
+</html>

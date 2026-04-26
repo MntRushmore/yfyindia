@@ -9,6 +9,7 @@ export default defineConfig({
         about: resolve(__dirname, "about.html"),
         gallery: resolve(__dirname, "gallery.html"),
         contact: resolve(__dirname, "contact.html"),
+        video: resolve(__dirname, "video.html"),
       },
     },
     assetsInclude: [

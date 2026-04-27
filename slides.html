@@ -751,6 +751,295 @@
     }
     #s17 .fcpy .mn { opacity: 0.3; }
 
+    /* ── parents slide ── */
+    #s10c {
+      background: var(--fg);
+      color: var(--bg);
+      padding: 0;
+      align-items: stretch;
+    }
+    #s10c .par-left {
+      width: 380px;
+      flex-shrink: 0;
+      background: var(--accent1);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3em 3em 3.5em;
+      gap: 0.5em;
+    }
+    #s10c .par-left .mn { opacity: 0.65; color: var(--bg); }
+    #s10c .par-left h1 { font-size: 3.2rem; line-height: 1; color: var(--bg); }
+    #s10c .par-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3.5em 4.5em;
+      gap: 0;
+    }
+    #s10c .par-item {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+      padding: 1.4em 0;
+      border-bottom: 1px solid rgba(250,232,223,0.08);
+    }
+    #s10c .par-item:last-child { border-bottom: none; }
+    #s10c .par-num {
+      font-family: "supply-mono", monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      opacity: 0.3;
+      color: var(--bg);
+      flex-shrink: 0;
+    }
+    #s10c .par-item p {
+      font-family: "rader";
+      font-style: italic;
+      font-weight: 700;
+      font-size: 2.4rem;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--bg);
+    }
+
+    /* ── bring it to serra slide ── */
+    #s10b {
+      background: var(--fg);
+      color: var(--bg);
+      padding: 0;
+      align-items: stretch;
+    }
+    #s10b .serra-left {
+      width: 420px;
+      flex-shrink: 0;
+      background: var(--accent1);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3em 3em 3.5em;
+      gap: 1em;
+    }
+    #s10b .serra-left .mn { opacity: 0.65; color: var(--bg); }
+    #s10b .serra-left h1 { font-size: 5.5rem; line-height: 0.88; color: var(--bg); }
+    #s10b .serra-cta {
+      font-family: "formula-narrow";
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--bg);
+      opacity: 0.8;
+      border-top: 1px solid rgba(250,232,223,0.3);
+      padding-top: 1em;
+    }
+    #s10b .serra-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3.5em 4.5em;
+      gap: 0;
+    }
+    #s10b .serra-item {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+      padding: 1.4em 0;
+      border-bottom: 1px solid rgba(250,232,223,0.08);
+    }
+    #s10b .serra-item:last-child { border-bottom: none; }
+    #s10b .serra-num {
+      font-family: "supply-mono", monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      opacity: 0.3;
+      color: var(--bg);
+      flex-shrink: 0;
+    }
+    #s10b .serra-item p {
+      font-family: "rader";
+      font-style: italic;
+      font-weight: 700;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--bg);
+    }
+
+    /* ── solution slide ── */
+    #s00c {
+      background: var(--bg);
+      align-items: stretch;
+      padding: 0;
+    }
+    #s00c .sol-inner {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 3.5em 5em;
+      border-left: 0.5em solid var(--accent1);
+      margin: 3em 3em 3em 0;
+    }
+    #s00c .sol-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6em;
+    }
+    #s00c .sol-header .mn { opacity: 0.4; color: var(--fg); }
+    #s00c .sol-header h1 { font-size: 6rem; color: var(--fg); }
+    #s00c .sol-intro {
+      font-family: "formula-narrow";
+      font-size: 1.1rem;
+      font-weight: 600;
+      opacity: 0.55;
+      color: var(--fg);
+      margin-top: 0.5em;
+    }
+    #s00c .sol-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2em;
+    }
+    #s00c .sol-item {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+    #s00c .sol-dot {
+      color: var(--accent1);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    #s00c .sol-item p {
+      font-family: "rader";
+      font-style: italic;
+      font-weight: 700;
+      font-size: 3rem;
+      text-transform: uppercase;
+      line-height: 1.05;
+      color: var(--fg);
+    }
+    #s00c .sol-footer {
+      border-top: 0.15em solid var(--fg);
+      padding-top: 1em;
+    }
+    #s00c .sol-tagline {
+      font-family: "rader";
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1.75rem;
+      text-transform: uppercase;
+      color: var(--accent1);
+    }
+
+    /* ── problem slide ── */
+    #s00b {
+      background: var(--fg);
+      color: var(--bg);
+      padding: 0;
+      align-items: stretch;
+    }
+    #s00b .prob-left {
+      width: 340px;
+      flex-shrink: 0;
+      background: var(--accent1);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3em;
+      gap: 0.5em;
+    }
+    #s00b .prob-left .mn { opacity: 0.6; color: var(--bg); }
+    #s00b .prob-left h1 { font-size: 6rem; color: var(--bg); line-height: 0.9; }
+    #s00b .prob-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4em 4em 4em 5em;
+      gap: 0;
+    }
+    #s00b .prob-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 2em;
+      padding: 1.75em 0;
+      border-bottom: 1px solid rgba(250,232,223,0.1);
+    }
+    #s00b .prob-item:last-child { border-bottom: none; }
+    #s00b .prob-num {
+      font-family: "supply-mono", monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      opacity: 0.35;
+      color: var(--bg);
+      flex-shrink: 0;
+      padding-top: 0.35em;
+    }
+    #s00b .prob-item p {
+      font-family: "rader";
+      font-style: italic;
+      font-weight: 700;
+      font-size: 2rem;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--bg);
+    }
+
+    /* ── cover slide ── */
+    #s00 {
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    #s00 .cover-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    #s00 .cover-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 3em 3.5em;
+      background: linear-gradient(to top, rgba(200,80,30,0.55) 0%, transparent 60%);
+      z-index: 1;
+    }
+    #s00 .cover-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75em;
+    }
+    #s00 .cover-org {
+      font-family: "supply-mono", monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.75);
+    }
+    #s00 .cover-sub {
+      font-family: "rader";
+      font-style: italic;
+      font-weight: 700;
+      font-size: 3.2rem;
+      text-transform: uppercase;
+      line-height: 0.95;
+      color: #fff;
+    }
+    #s00 .cover-byline {
+      font-family: "supply-mono", monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.6);
+      align-self: flex-end;
+    }
+
     /* ── qr code slide ── */
     #sqr {
       background: var(--accent1);
@@ -801,17 +1090,19 @@
     .qr-card {
       background: var(--bg);
       border-radius: 1.25em;
-      padding: 1.25em 1.25em 1em;
+      padding: 1.75em 1.75em 1.25em;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.75em;
+      gap: 1em;
       box-shadow: 5px 5px 0 var(--fg);
       border: 0.15em solid var(--fg);
+      width: 260px;
+      flex-shrink: 0;
     }
     .qr-card canvas { display: none !important; }
-    .qr-card img { display: block !important; width: 160px !important; height: 160px !important; }
-    .qr-card-label { opacity: 0.5; text-align: center; color: var(--fg); }
+    .qr-card img { display: block !important; width: 200px !important; height: 200px !important; }
+    .qr-card-label { opacity: 0.5; text-align: center; color: var(--fg); font-size: 0.8rem; }
 
     /* ── website preview slides ── */
     #swp1, #swp2 {
@@ -916,6 +1207,73 @@
   <b>Youth for Yoga — Slide Deck</b>
   <span>21 slides · 1280 × 720 · Open via npm run dev → http://localhost:5174/slides.html</span>
 </div>
+
+<!-- ═══ 00 COVER ═══ -->
+<div class="sw"><p class="sn">00 / Cover</p>
+<div class="slide" id="s00">
+  <img src="/images/cover.png" alt="Cover" class="cover-bg" />
+  <div class="cover-overlay">
+    <div class="cover-content">
+      <div class="cover-title">
+        <p class="cover-org">Youth for Yoga</p>
+        <h2 class="cover-sub">Helping Teens Manage<br>Stress & Build Confidence</h2>
+      </div>
+      <p class="cover-byline">By Rushil Chopra</p>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══ 00B THE PROBLEM ═══ -->
+<div class="sw"><p class="sn">00B / The Problem</p>
+<div class="slide" id="s00b">
+  <div class="prob-left">
+    <p class="mn">Slide 02</p>
+    <h1>The<br>Problem</h1>
+  </div>
+  <div class="prob-right">
+    <div class="prob-item">
+      <span class="prob-num">01</span>
+      <p>Teens today face high stress and pressure</p>
+    </div>
+    <div class="prob-item">
+      <span class="prob-num">02</span>
+      <p>Most are never taught how to manage it</p>
+    </div>
+    <div class="prob-item">
+      <span class="prob-num">03</span>
+      <p>Mental wellness tools are not accessible to all</p>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══ 00C THE SOLUTION ═══ -->
+<div class="sw"><p class="sn">00C / The Solution</p>
+<div class="slide" id="s00c">
+  <div class="sol-inner">
+    <div class="sol-header">
+      <p class="mn">Slide 03</p>
+      <h1>Our Solution</h1>
+      <p class="sol-intro">Youth for Yoga is a teen-led initiative that teaches:</p>
+    </div>
+    <div class="sol-items">
+      <div class="sol-item">
+        <span class="sol-dot">✦</span>
+        <p>Breathing Techniques</p>
+      </div>
+      <div class="sol-item">
+        <span class="sol-dot">✦</span>
+        <p>Mindfulness</p>
+      </div>
+      <div class="sol-item">
+        <span class="sol-dot">✦</span>
+        <p>Movement & Yoga</p>
+      </div>
+    </div>
+    <div class="sol-footer">
+      <p class="sol-tagline">By teens, for teens</p>
+    </div>
+  </div>
+</div></div>
 
 <!-- ═══ 01 HERO ═══ -->
 <div class="sw"><p class="sn">01 / Hero</p>
@@ -1046,30 +1404,51 @@
 </div></div>
 
 <!-- ═══ 10 JOIN US ═══ -->
-<div class="sw"><p class="sn">10 / Join Us</p>
+<div class="sw"><p class="sn">10 / Bring It to Serra</p>
 <div class="slide" id="s10">
   <div class="jhdr">
-    <p class="mn">Get involved</p>
-    <h1>Join Us</h1>
+    <p class="mn">Your school. Your impact.</p>
+    <h1>Bring It to Serra</h1>
   </div>
   <div class="jgrid">
     <div class="jcard ja">
-      <p class="mn">For Organizations</p>
-      <h2>Bring Youth for Yoga to Your Community</h2>
-      <p>Partner with us to bring Youth for Yoga programs to students in your school, district, or organization.</p>
-      <span class="jb">Partner With Us</span>
+      <p class="mn">01</p>
+      <h2>Earn Service Hours</h2>
+      <p>Get credited for meaningful work that actually helps your peers.</p>
     </div>
     <div class="jcard jb2">
-      <p class="mn">For Donors</p>
-      <h2>Support Youth Wellness Globally</h2>
-      <p>Your support helps us reach more young women with the tools they need to thrive — mentally, physically, and socially.</p>
-      <span class="jb">Support Our Mission</span>
+      <p class="mn">02</p>
+      <h2>Build Leadership Skills</h2>
+      <p>Develop real skills in planning, facilitation, and communication that go beyond the classroom.</p>
     </div>
     <div class="jcard jc">
-      <p class="mn">For Teens</p>
-      <h2>Become a Youth Wellness Leader</h2>
-      <p>Join Youth for Yoga and be part of a global movement of young people using yoga to create real change.</p>
+      <p class="mn">03 — 04</p>
+      <h2>Lead Real Sessions & Make Real Impact</h2>
+      <p>Run yoga and mindfulness sessions for students at Serra. By teens, for teens.</p>
       <span class="jb">Get Involved</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══ 10C PARENTS ═══ -->
+<div class="sw"><p class="sn">10C / For Parents</p>
+<div class="slide" id="s10c">
+  <div class="par-left">
+    <p class="mn">For Parents</p>
+    <h1>Support the<br>Movement</h1>
+  </div>
+  <div class="par-right">
+    <div class="par-item">
+      <span class="par-num">01</span>
+      <p>Mentorship Opportunities</p>
+    </div>
+    <div class="par-item">
+      <span class="par-num">02</span>
+      <p>Community Partnerships</p>
+    </div>
+    <div class="par-item">
+      <span class="par-num">03</span>
+      <p>Help Expand Youth Wellness Programs</p>
     </div>
   </div>
 </div></div>
@@ -1147,9 +1526,10 @@
     <span class="pn">Rainbow Kids Yoga</span>
     <span class="pn">Dau Dayal School</span>
     <span class="pn">Yoga Gives Back</span>
+    <span class="pn">M.K.D.S.S. School</span>
   </div>
   <div class="pty">
-    <p>A heartfelt thank you to <strong>Yoga Without Borders</strong>, <strong>EduGirls</strong>, <strong>Rainbow Kids Yoga</strong>, <strong>Dau Dayal School</strong>, and <strong>Yoga Gives Back</strong> — your trust, guidance, and open doors made this journey possible. We couldn't have done any of this without you.</p>
+    <p>A heartfelt thank you to <strong>Yoga Without Borders</strong>, <strong>EduGirls</strong>, <strong>Rainbow Kids Yoga</strong>, <strong>Dau Dayal School</strong>, <strong>Yoga Gives Back</strong>, and <strong>M.K.D.S.S. School</strong> — your trust, guidance, and open doors made this journey possible. We couldn't have done any of this without you.</p>
   </div>
 </div></div>
 
@@ -1207,7 +1587,7 @@
           <img src="/images/gallery/general/19C82155-908F-49FB-97DA-D8C4E1F4F82E.jpeg" alt="Yoga circle" />
         </div>
         <div class="cimg cimg-med">
-          <img src="/images/gallery/general/F7A7C246-DFC8-43E4-9F86-EC7CE94F4151.jpeg" alt="Blue uniform students" />
+          <img src="/images/yoga2.jpg" alt="Yoga session" />
         </div>
       </div>
     </div>
@@ -1263,7 +1643,7 @@
     <div class="qr-cards">
       <div class="qr-card">
         <div id="qr-website"></div>
-        <p class="mn qr-card-label">Our India Journey</p>
+        <p class="mn qr-card-label">Join as Youth Leader</p>
       </div>
       <div class="qr-card">
         <div id="qr-instagram"></div>
@@ -1321,7 +1701,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
   const qrOpts = { width: 160, height: 160, colorDark: '#1a1008', colorLight: '#fae8df', correctLevel: QRCode.CorrectLevel.H };
-  new QRCode(document.getElementById('qr-website'),   { ...qrOpts, text: 'https://yogawithoutborders.youthforyoga.org/' });
+  new QRCode(document.getElementById('qr-website'),   { ...qrOpts, text: 'https://youthforyoga.org/programs-and-offerings/youth-leadership-programs/' });
   new QRCode(document.getElementById('qr-instagram'), { ...qrOpts, text: 'https://www.instagram.com/youthforyoga' });
   new QRCode(document.getElementById('qr-donate'),    { ...qrOpts, text: 'https://hcb.hackclub.com/donations/start/youthforyoga' });
 </script>

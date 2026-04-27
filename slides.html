@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youth for Yoga — Slides</title>
+  <link rel="stylesheet" href="/css/fonts.css" />
+  <style>
+    :root {
+      --bg:      #fae8df;
+      --bg2:     #f5d5c5;
+      --fg:      #1a1008;
+      --accent1: #c8623a;
+      --accent2: #f5e0d3;
+      --accent3: #e8a882;
+      --accent4: #7a3e22;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #111;
+      padding: 40px 0 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    /* ── toolbar ── */
+    .bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 40px;
+      background: #0a0a0a;
+      border-bottom: 1px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      font-family: "supply-mono", monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #555;
+      z-index: 999;
+    }
+    .bar b { color: #aaa; font-weight: 500; }
+
+    .sw { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+    .sn {
+      font-family: "supply-mono", monospace;
+      font-size: 9px;
+      color: #3a3a3a;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding-left: 2px;
+    }
+
+    /* ── BASE SLIDE ── 1280 × 720 ── */
+    .slide {
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-shrink: 0;
+      background: var(--bg);
+      box-shadow: 0 8px 48px rgba(0,0,0,0.7), 0 0 0 1px #222;
+    }
+
+    /* ── TYPOGRAPHY — exact site globals.css ── */
+    h1, h2, h3 {
+      font-family: "rader";
+      font-style: italic;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 0.95;
+    }
+    p, p.ss {
+      font-family: "formula-narrow";
+      font-weight: 600;
+      font-size: 1.25rem;
+      line-height: 1.125;
+    }
+    .mn {
+      font-family: "supply-mono";
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.125;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* mandala watermark helper */
+    .mwm {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%; aspect-ratio: 1;
+      background: url("/images/mandala.png") no-repeat center / contain;
+      pointer-events: none;
+    }
+
+    /* ═══════════════════════════
+       01 — HERO
+    ═══════════════════════════ */
+    #s01 {
+      background: var(--bg);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #s01 .mwm { opacity: 0.14; width: 56%; }
+    #s01 .hw { position: relative; z-index: 1; }
+    #s01 .hw h1 { font-size: 14vw; line-height: 0.88; }
+    #s01 .l1 { display: block; transform: translateX(-20%); color: var(--accent1); }
+    #s01 .l2 { display: block; transform: translateX(20%);  color: var(--fg); }
+    #s01 .hfoot {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2em;
+      display: flex;
+      justify-content: space-between;
+    }
+    #s01 .hfoot .mn { color: var(--accent4); }
+
+    /* ═══════════════════════════
+       02 — ABOUT HERO / MISSION
+       .about-hero: accent1 bg, centered, 12em v-pad
+    ═══════════════════════════ */
+    #s02 {
+      background: var(--accent1);
+      color: var(--bg);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 5em;
+      gap: 2em;
+    }
+    #s02 h1 { font-size: 7.5rem; }
+    #s02 p  { max-width: 620px; opacity: 0.9; }
+    #s02 .mn { opacity: 0.6; }
+
+    /* ═══════════════════════════
+       03 — STATS
+       .stats: flex col, gap 2em, pad 8em 2em
+       rows flex, gap 2em
+       cells: br 1em, pad 2em, flex col, space-between
+    ═══════════════════════════ */
+    #s03 {
+      background: var(--bg);
+      flex-direction: column;
+      padding: 3.5em 2.5em;
+      gap: 1.5em;
+    }
+    #s03 .srow { display: flex; gap: 1.5em; flex: 1; min-height: 0; }
+    #s03 .shdr {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    #s03 .shdr h2 { font-size: 3rem; }
+    #s03 .shdr p  { opacity: 0.65; }
+    #s03 .sc {
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    #s03 .sc h1 { font-size: 5.5rem; line-height: 1; }
+    #s03 .sc p  { opacity: 0.88; max-width: 280px; }
+    #s03 .sa { flex: 1;  background: var(--accent1); color: var(--bg); }
+    #s03 .sb { flex: 3;  background: var(--accent3); color: var(--fg); }
+    #s03 .sc2{ flex: 2;  background: var(--fg);      color: var(--bg); }
+
+    /* ═══════════════════════════
+       04 — OUR STORY / ABOUT COPY
+       .about-copy: centered box 50% w, accent1 bg,
+       border .25em solid fg, br 1em, gap 2em
+       + floating tags rotated
+    ═══════════════════════════ */
+    #s04 {
+      background: var(--bg);
+      justify-content: center;
+      align-items: center;
+    }
+    #s04 .mwm { opacity: 0.06; }
+    #s04 .sbox {
+      background: var(--accent1);
+      color: var(--bg);
+      border: 0.25em solid var(--fg);
+      border-radius: 1em;
+      padding: 2.5em 2em;
+      width: 52%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75em;
+      text-align: center;
+      z-index: 1;
+    }
+    #s04 .sbox h3 { font-size: 1.45rem; font-weight: 400; line-height: 1.25; }
+    #s04 .sbox h3 span { font-weight: 900; }
+    /* floating tags */
+    #s04 .tg {
+      position: absolute;
+      background: var(--fg);
+      border-radius: 0.5em;
+      z-index: 2;
+    }
+    #s04 .tg p {
+      font-family: "formula-narrow";
+      font-weight: 600;
+      color: var(--bg);
+      font-size: 1rem;
+      text-transform: uppercase;
+      padding: 0.7em 0.5em 0.5em;
+      line-height: 1;
+    }
+    #s04 .t1 { top: 50%; left: 23%;  transform: translate(-50%,-50%) rotate(20deg);  }
+    #s04 .t2 { top: 66%; left:  8%;  transform: translate(-50%,-50%) rotate(-45deg); }
+    #s04 .t3 { top: 47%; left: 77%;  transform: translate(-50%,-50%) rotate(5deg);   }
+    #s04 .t4 { top: 74%; left: 79%;  transform: translate(-50%,-50%) rotate(45deg);  }
+    #s04 .t5 { top: 28%; left: 16%;  transform: translate(-50%,-50%) rotate(-15deg); }
+
+    /* ═══════════════════════════
+       05-09 — SERVICE CARDS
+       .services: bg bg, pad 2em
+       .service-card-inner: w calc(100vw - 4em), pad 2em,
+         flex row, gap 4em, br 2em, min-h 500px
+       .service-card-content: flex 3, flex col, gap 2em
+       .service-card-img: flex 1, br 2em
+    ═══════════════════════════ */
+    .svs {
+      background: var(--bg);
+      padding: 2em;
+      align-items: stretch;
+    }
+    .svi {
+      flex: 1;
+      border-radius: 2em;
+      padding: 2.5em 3em;
+      display: flex;
+      gap: 4em;
+      align-items: stretch;
+    }
+    .svc {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      justify-content: center;
+    }
+    .svc h1 { font-size: 4rem; }
+    .svc p  { opacity: 0.9; max-width: 500px; }
+    .svimg {
+      flex: 1;
+      border-radius: 2em;
+      overflow: hidden;
+    }
+    .svimg img { width: 100%; height: 100%; object-fit: cover; }
+    /* card colours — matches #service-card-N */
+    .i1 { background: var(--accent1); color: var(--bg); }
+    .i2 { background: var(--bg2);     color: var(--fg); }
+    .i3 { background: var(--accent3); color: var(--fg); }
+    .i4 { background: var(--fg);      color: var(--bg); }
+    .i5 { background: var(--accent2); color: var(--fg); border: 0.2em solid var(--fg); flex-direction: column; gap: 2em; justify-content: center; }
+    .i5 .svc { max-width: 800px; }
+
+    /* ═══════════════════════════
+       10 — JOIN US
+       .join-cta: bg fg, pad 8em 2em, col
+       .join-cta-header: center, col, gap .25em
+       .join-cta-cards: grid 3col, gap 1.5em
+       .join-card: pad 2.5em 2em, br 1.5em,
+         border rgba white .15, flex col, gap 1em
+         — label top, body flex:1, btn pinned bottom
+    ═══════════════════════════ */
+    #s10 {
+      background: var(--fg);
+      color: var(--bg);
+      flex-direction: column;
+      padding: 3em 2.5em;
+      gap: 0;
+    }
+    #s10 .jhdr {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25em;
+      align-items: center;
+      margin-bottom: 2em;
+    }
+    #s10 .jhdr .mn { opacity: 0.5; }
+    #s10 .jhdr h1  { font-size: 4.5rem; }
+    #s10 .jgrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5em;
+      flex: 1;
+      min-height: 0;
+    }
+    .jcard {
+      padding: 2.5em 2em;
+      border-radius: 1.5em;
+      border: 0.15em solid rgba(255,255,255,0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    .jcard .mn { opacity: 0.65; }
+    .jcard h2  { font-size: 1.75rem; }
+    .jcard p   { opacity: 0.8; flex: 1; line-height: 1.35; }
+    .jcard .jb {
+      display: inline-block;
+      margin-top: 0.5em;
+      padding: 0.6em 1.25em 0.5em;
+      border-radius: 2em;
+      border: 0.15em solid currentColor;
+      font-family: "supply-mono";
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: max-content;
+    }
+    .ja { background: var(--accent1); color: var(--bg); }
+    .jb2{ background: var(--accent3); color: var(--fg); }
+    .jc { background: var(--bg);      color: var(--fg); }
+
+    /* ═══════════════════════════
+       11 — TEAM
+       .team: pad 8em 2em, border-top .15em fg
+       .team-header: col, gap .5em, mb 3em
+       .team-grid: grid 2col, gap 2em
+       .team-member: pad 2em, border .15em fg, br 1em, col, gap .5em
+    ═══════════════════════════ */
+    #s11 {
+      background: var(--bg);
+      flex-direction: column;
+      padding: 3em 2.5em;
+      gap: 0;
+      border-top: 0.15em solid var(--fg);
+    }
+    #s11 .thdr {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      margin-bottom: 2em;
+    }
+    #s11 .thdr .mn { opacity: 0.5; }
+    #s11 .thdr h2  { font-size: 3.5rem; }
+    #s11 .tgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5em;
+      flex: 1;
+      min-height: 0;
+    }
+    .tmem {
+      padding: 2em;
+      border: 0.15em solid var(--fg);
+      border-radius: 1em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+    .tn { font-family: "rader"; font-style: italic; font-size: 1.5rem; text-transform: uppercase; line-height: 1; }
+    .tr { opacity: 0.6; }
+    .tb {
+      font-family: "formula-narrow";
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.65;
+      opacity: 0.75;
+      margin-top: 0.5em;
+    }
+
+    /* ═══════════════════════════
+       12 — VISION
+       .vision: bg fg, col, pad 8em 2em
+       .vision-content: grid 2col, gap 6em
+       .vision-text: col, gap 1.5em
+       .vision-goal: flex, gap 1.5em, pad-b 2em, border-b
+    ═══════════════════════════ */
+    #s12 {
+      background: var(--fg);
+      color: var(--bg);
+      padding: 4em 3em;
+    }
+    #s12 .vc {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5em;
+      height: 100%;
+      align-items: start;
+    }
+    #s12 .vt { display: flex; flex-direction: column; gap: 1.5em; }
+    #s12 .vt .mn { opacity: 0.5; }
+    #s12 .vt h2  { font-size: 2.5rem; }
+    #s12 .vt p   { opacity: 0.8; }
+    #s12 .vgs { display: flex; flex-direction: column; }
+    #s12 .vg {
+      display: flex;
+      gap: 1.5em;
+      align-items: flex-start;
+      padding: 2em 0;
+      border-bottom: 0.1em solid rgba(255,255,255,0.1);
+    }
+    #s12 .vg:last-child { border-bottom: none; }
+    #s12 .vg .mn { opacity: 0.4; flex-shrink: 0; }
+    #s12 .vg p   { opacity: 0.85; }
+
+    /* ═══════════════════════════
+       13 — SKILLS / WHAT WE DO
+       .skills: pad 4em 2em
+       .skills-copy: margin auto, pad 2em, border .2em dashed fg, br 1em
+    ═══════════════════════════ */
+    #s13 {
+      background: var(--bg);
+      flex-direction: column;
+      padding: 3.5em 3em;
+      gap: 2em;
+      justify-content: center;
+    }
+    #s13 h2 { font-size: 4rem; }
+    #s13 .skbox {
+      display: block;
+      margin: 0 auto;
+      padding: 2em 4em;
+      border: 0.2em dashed var(--fg);
+      border-radius: 1em;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 5em;
+    }
+    #s13 .sk {
+      display: flex;
+      gap: 1.5em;
+      align-items: baseline;
+      padding: 0.85em 0;
+      border-bottom: 1px solid rgba(26,16,8,0.08);
+    }
+    #s13 .sk .mn { color: var(--accent4); flex-shrink: 0; }
+    #s13 .sk p   { font-size: 1.05rem; }
+
+    /* ═══════════════════════════
+       14 — PARTNERS (static)
+       .partners accent1 bg, big Rader names
+    ═══════════════════════════ */
+    #s14 {
+      background: var(--bg2);
+      color: var(--fg);
+      flex-direction: column;
+      justify-content: center;
+      padding: 2.5em 3em;
+      gap: 0;
+    }
+    #s14 .plbl {
+      font-family: "supply-mono";
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      opacity: 0.5;
+      color: var(--fg);
+      margin-bottom: 1.5em;
+    }
+    #s14 .pns {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55em;
+    }
+    #s14 .pn {
+      display: flex;
+      align-items: center;
+      background: var(--accent1);
+      border-radius: 0.6em;
+      padding: 0.5em 1.25em;
+      font-family: "rader";
+      font-style: italic;
+      font-weight: 700;
+      font-size: 2.1rem;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--bg);
+      white-space: nowrap;
+    }
+    #s14 .pn:nth-child(1) { width: 100%; background: var(--accent1);  color: var(--bg); }
+    #s14 .pn:nth-child(2) { width: 100%; background: var(--bg);       color: var(--fg); }
+    #s14 .pn:nth-child(3) { width: 100%; background: var(--accent3);  color: var(--fg); }
+    #s14 .pn:nth-child(4) { width: 100%; background: var(--accent2);  color: var(--fg); }
+    #s14 .pn:nth-child(5) { width: 100%; background: var(--accent4);  color: var(--bg); }
+    #s14 .pty {
+      margin-top: 1.75em;
+      padding-top: 1.5em;
+      border-top: 1px solid rgba(26,16,8,0.1);
+      max-width: 640px;
+    }
+    #s14 .pty p {
+      font-family: "formula-narrow";
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.7;
+      opacity: 0.55;
+      color: var(--fg);
+    }
+    #s14 .pty strong { font-weight: 700; }
+
+    /* ═══════════════════════════
+       15 — CONTACT
+       .contact: flex col, justify center, align flex-start
+       .contact-bottom: flex, justify space-between, align flex-end
+       .contact-card: flex col, gap .5em
+    ═══════════════════════════ */
+    #s15 {
+      background: var(--bg);
+      flex-direction: column;
+      padding: 2em 2em;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    #s15 .cmain {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+    #s15 .cmain-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+    }
+    #s15 .cmain-inner h1 { font-size: 5rem; }
+    #s15 .cmain-inner p  { width: 50%; }
+    #s15 .cmain-inner .dim { opacity: 0.7; }
+    #s15 .cbot {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    #s15 .ccard { display: flex; flex-direction: column; gap: 0.5em; }
+    #s15 .cchdr {
+      display: inline-block;
+      padding: 0.25em 0.5em 0.2em;
+      border-radius: 0.25em;
+      background: var(--fg);
+      color: var(--bg);
+      font-family: "supply-mono";
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: max-content;
+    }
+    #s15 .ccard .mn.dim { opacity: 0.55; }
+
+    /* ═══════════════════════════
+       16 — INDIA JOURNEY PHOTO COLLAGE
+    ═══════════════════════════ */
+    #s16 {
+      background: var(--fg);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    #s16 .collage-bg {
+      position: absolute; inset: 0;
+      background: var(--fg);
+    }
+    #s16 .collage-inner {
+      position: relative; z-index: 1;
+      display: flex;
+      width: 100%; height: 100%;
+      gap: 0;
+      overflow: hidden;
+    }
+    #s16 .collage-left {
+      display: flex;
+      flex-direction: column;
+      width: 36%;
+      padding: 2em 1.5em 2em 2em;
+      gap: 1em;
+    }
+    #s16 .collage-label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4em;
+      color: var(--bg);
+    }
+    #s16 .collage-label .mn { opacity: 0.5; color: var(--accent3); }
+    #s16 .collage-label h2 { font-size: 2.4rem; line-height: 0.95; color: var(--bg); }
+    #s16 .collage-sub { font-size: 0.85rem; opacity: 0.6; color: var(--bg); line-height: 1.45; }
+    #s16 .collage-col-imgs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6em;
+      flex: 1;
+      min-height: 0;
+    }
+    #s16 .collage-right {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
+      padding: 2em 2em 2em 0;
+      gap: 0.6em;
+      overflow: hidden;
+    }
+    #s16 .collage-row-imgs {
+      display: flex;
+      gap: 0.6em;
+      flex: 1;
+      min-height: 0;
+    }
+    /* shared image card */
+    #s16 .cimg {
+      border-radius: 0.75em;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+    }
+    #s16 .cimg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    #s16 .cimg-tall { flex: 1; min-height: 0; }
+    #s16 .cimg-square { height: 90px; border-radius: 0.75em; overflow: hidden; }
+    #s16 .cimg-square img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    #s16 .cimg-wide { height: 210px; border-radius: 0.75em; overflow: hidden; position: relative; flex-shrink: 0; }
+    #s16 .cimg-wide img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+    #s16 .cimg-med { flex: 1; min-height: 0; border-radius: 0.75em; overflow: hidden; }
+    #s16 .cimg-med img { width: 100%; height: 100%; object-fit: cover; }
+    #s16 .cimg-caption {
+      position: absolute;
+      bottom: 0.5em; left: 0.6em;
+      font-family: "supply-mono", monospace;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #fff;
+      opacity: 0.85;
+      background: rgba(0,0,0,0.45);
+      padding: 0.2em 0.5em;
+      border-radius: 0.3em;
+    }
+
+    /* ═══════════════════════════
+       17 — CTA BUTTON
+       .contact-button: oval gradient, stripe overlay,
+         border .75em fg, br 20em, shadow offset
+    ═══════════════════════════ */
+    #s17cta {
+      background: var(--bg);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #s17cta .ctabox {
+      position: relative;
+      width: 62%;
+      height: 280px;
+      border: 0.75em solid var(--fg);
+      border-radius: 20em;
+      background: linear-gradient(45deg, #c8623a, #e8a882, #f5c4a0, #a03e1a);
+      background-size: 400% 400%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      animation: gradMove 10s ease-in-out infinite;
+      box-shadow: 10px 10px 0px 5px var(--fg);
+      overflow: hidden;
+    }
+    #s17cta .ctabox::before {
+      content: "";
+      position: absolute; top: 0; left: 0;
+      width: 200%; height: 100%;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(0,0,0,0.1) 0px,  rgba(0,0,0,0.1) 15px,
+        transparent 15px,     transparent 30px
+      );
+      animation: stripeMove 30s linear infinite;
+    }
+    #s17cta .ctabox .mn { position: relative; z-index: 1; color: var(--bg); }
+    #s17cta .ctabox h1  { position: relative; z-index: 1; font-size: 7rem; color: var(--bg); }
+    @keyframes gradMove {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes stripeMove {
+      0%   { transform: translateX(-50%); }
+      100% { transform: translateX(0%); }
+    }
+
+    /* ═══════════════════════════
+       17 — FOOTER / CLOSING
+       footer: pad 2em, bg fg
+       .footer-container: bg fg, br 2em, pad 2em, flex col, space-between
+    ═══════════════════════════ */
+    #s17 {
+      background: var(--fg);
+      padding: 2em;
+    }
+    #s17 .fc {
+      flex: 1;
+      border-radius: 2em;
+      padding: 2.5em 3em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: var(--bg);
+      background: var(--fg);
+      position: relative;
+      overflow: hidden;
+    }
+    #s17 .mwm { opacity: 0.05; width: 50%; }
+    #s17 .fhdr { text-align: center; position: relative; z-index: 1; }
+    #s17 .fhdr h1 { font-size: 6rem; }
+    #s17 .frow {
+      display: flex;
+      gap: 2em;
+      position: relative; z-index: 1;
+      margin-bottom: 4em;
+    }
+    #s17 .fcol {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
+    }
+    #s17 .fcol p:not(:first-child) { opacity: 0.35; font-size: 1rem; }
+    #s17 .fsoc {
+      display: flex;
+      justify-content: center;
+      gap: 1.5em;
+      position: relative; z-index: 1;
+    }
+    #s17 .fsoc .mn { opacity: 0.5; }
+    #s17 .fcpy {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      position: relative; z-index: 1;
+    }
+    #s17 .fcpy .mn { opacity: 0.3; }
+
+    /* ── qr code slide ── */
+    #sqr {
+      background: var(--accent1);
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .qr-mandala {
+      position: absolute;
+      inset: 0;
+      background: url('/images/mandala.png') center center / 90% no-repeat;
+      opacity: 0.07;
+      pointer-events: none;
+    }
+    .qr-inner {
+      position: relative; z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5em;
+      width: 100%;
+      padding: 3em 4em;
+    }
+    .qr-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4em;
+      color: var(--bg);
+      text-align: center;
+    }
+    .qr-logo {
+      position: absolute;
+      top: 1.5em;
+      left: 1.75em;
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      z-index: 2;
+    }
+    .qr-header .mn { opacity: 0.6; color: var(--bg); }
+    .qr-header h2 { font-size: 4rem; color: var(--bg); letter-spacing: 0.04em; }
+    .qr-cards {
+      display: flex;
+      gap: 2em;
+      justify-content: center;
+    }
+    .qr-card {
+      background: var(--bg);
+      border-radius: 1.25em;
+      padding: 1.25em 1.25em 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75em;
+      box-shadow: 5px 5px 0 var(--fg);
+      border: 0.15em solid var(--fg);
+    }
+    .qr-card canvas { display: none !important; }
+    .qr-card img { display: block !important; width: 160px !important; height: 160px !important; }
+    .qr-card-label { opacity: 0.5; text-align: center; color: var(--fg); }
+
+    /* ── website preview slides ── */
+    #swp1, #swp2 {
+      background: var(--fg);
+      padding: 2em 2em 2em 2.5em;
+      gap: 2em;
+      align-items: stretch;
+    }
+    .wp-frame {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-radius: 1em;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      border: 0.15em solid rgba(255,255,255,0.08);
+    }
+    .wp-browser-bar {
+      background: #1e1e1e;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      padding: 0 1em;
+      flex-shrink: 0;
+    }
+    .wp-dots {
+      display: flex;
+      gap: 5px;
+    }
+    .wp-dots span {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #444;
+      display: block;
+    }
+    .wp-dots span:nth-child(1) { background: #ff5f57; }
+    .wp-dots span:nth-child(2) { background: #febc2e; }
+    .wp-dots span:nth-child(3) { background: #28c840; }
+    .wp-url {
+      flex: 1;
+      background: #2a2a2a;
+      border-radius: 0.3em;
+      padding: 0.2em 0.75em;
+      text-align: center;
+      max-width: 340px;
+      margin: 0 auto;
+    }
+    .wp-url .mn { color: #888; font-size: 0.7rem; }
+    .wp-screen {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+    .wp-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .wp-label {
+      width: 180px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.5em;
+      color: var(--bg);
+    }
+    .wp-label .mn { color: var(--accent3); opacity: 0.7; }
+    .wp-label h2 { font-size: 2.2rem; line-height: 0.95; color: var(--bg); }
+
+    /* ── copy button ── */
+    .sw {
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-family: "supply-mono", monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #555;
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 4px 10px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+      z-index: 10;
+    }
+    .copy-btn:hover { color: #ccc; border-color: #555; background: #1a1a1a; }
+    .copy-btn:active { background: #222; }
+  </style>
+</head>
+<body>
+
+<div class="bar">
+  <b>Youth for Yoga — Slide Deck</b>
+  <span>21 slides · 1280 × 720 · Open via npm run dev → http://localhost:5174/slides.html</span>
+</div>
+
+<!-- ═══ 01 HERO ═══ -->
+<div class="sw"><p class="sn">01 / Hero</p>
+<div class="slide" id="s01">
+  <div class="mwm" style="opacity:.14;width:55%"></div>
+  <div class="hw">
+    <h1 class="l1">Youth</h1>
+    <h1 class="l2">for Yoga</h1>
+  </div>
+  <div class="hfoot">
+    <p class="mn" style="color:var(--accent4)">India Journey / 2026</p>
+    <p class="mn" style="color:var(--accent4)">Scroll ↓</p>
+  </div>
+</div></div>
+
+<!-- ═══ 02 MISSION ═══ -->
+<div class="sw"><p class="sn">02 / Mission</p>
+<div class="slide" id="s02">
+  <h1>Youth for Yoga</h1>
+  <p>We're a youth-led nonprofit on a mission to bring yoga to students everywhere — starting with an unforgettable journey to Ferozabad, India in 2026. We believe young people have the power to create real change.</p>
+  <p class="mn">Youth · Nonprofit · India · Yoga · Movement</p>
+</div></div>
+
+<!-- ═══ 03 STATS ═══ -->
+<div class="sw"><p class="sn">03 / Our Impact</p>
+<div class="slide" id="s03">
+  <div class="srow">
+    <div class="shdr">
+      <h2>Our Impact<br>in Ferozabad</h2>
+      <p>Real numbers from our India Journey 2026</p>
+    </div>
+    <div class="sc sa">
+      <h1>500+</h1>
+      <p>Girls impacted through yoga, mindfulness, and movement</p>
+    </div>
+  </div>
+  <div class="srow">
+    <div class="sc sb">
+      <h1>5</h1>
+      <p>Partner schools in Ferozabad, Uttar Pradesh</p>
+    </div>
+    <div class="sc sc2">
+      <h1>30+</h1>
+      <p>Hours of teaching — focused on mental health, confidence, and self-expression</p>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══ 04 OUR STORY ═══ -->
+<div class="sw"><p class="sn">04 / Our Story</p>
+<div class="slide" id="s04">
+  <div class="mwm" style="opacity:.06"></div>
+  <div class="sbox">
+    <h3>Youth for Yoga started as a <span>small teen-led initiative</span> to share yoga and has grown into a <span>global movement</span> promoting focus, resilience, and community.</h3>
+    <h3>In 2026, we traveled to <span>Ferozabad, Uttar Pradesh</span> — visiting 5 schools and teaching <span>500+ young people</span> the power of breath, movement, and presence.</h3>
+    <h3>From the <span>classroom floor</span> to the Taj Mahal — this trip proved that <span>yoga is universal</span>, and that youth can build bridges across any distance.</h3>
+  </div>
+  <div class="tg t1"><p>Yoga</p></div>
+  <div class="tg t2"><p>India</p></div>
+  <div class="tg t3"><p>Youth</p></div>
+  <div class="tg t4"><p>500+ Students</p></div>
+  <div class="tg t5"><p>Nonprofit</p></div>
+</div></div>
+
+<!-- ═══ 05 TEACHING YOGA ═══ -->
+<div class="sw"><p class="sn">05 / Teaching Yoga</p>
+<div class="slide svs">
+  <div class="svi i1">
+    <div class="svc">
+      <h1>Teaching<br>Yoga</h1>
+      <p>We led daily yoga sessions at schools across Ferozabad — working with students of all ages to build strength, focus, and calm.</p>
+      <p class="mn">Postures · Breathing · Mindfulness</p>
+    </div>
+    <div class="svimg"><img src="/images/hero/hero-1.jpg" alt="" /></div>
+  </div>
+</div></div>
+
+<!-- ═══ 06 STUDENT HOME VISITS ═══ -->
+<div class="sw"><p class="sn">06 / Student Home Visits</p>
+<div class="slide svs">
+  <div class="svi i2">
+    <div class="svc">
+      <h1>Student<br>Home Visits</h1>
+      <p>We visited students in their homes, meeting families and understanding the communities we serve — making real, lasting connections.</p>
+      <p class="mn">Community · Connection · Care</p>
+    </div>
+    <div class="svimg"><img src="/images/hero/hero-6.jpg" alt="" /></div>
+  </div>
+</div></div>
+
+<!-- ═══ 07 HUGS & LOTS OF LOVE ═══ -->
+<div class="sw"><p class="sn">07 / Hugs &amp; Lots of Love</p>
+<div class="slide svs">
+  <div class="svi i3">
+    <div class="svc">
+      <h1>Hugs &<br>Lots of Love</h1>
+      <p>The goodbyes that made everything worth it — students, families, and our team sharing moments of genuine connection and warmth.</p>
+      <p class="mn">Connection · Joy · Gratitude</p>
+    </div>
+    <div class="svimg"><img src="/images/hero/hero-9.jpg" alt="" /></div>
+  </div>
+</div></div>
+
+<!-- ═══ 08 TAJ MAHAL & BEYOND ═══ -->
+<div class="sw"><p class="sn">08 / Taj Mahal &amp; Beyond</p>
+<div class="slide svs">
+  <div class="svi i4">
+    <div class="svc">
+      <h1>Taj Mahal<br>&amp; Beyond</h1>
+      <p>From the Taj Mahal to local markets in Ferozabad — we immersed ourselves in the culture, history, and spirit of India.</p>
+      <p class="mn">India · Culture · Growth</p>
+    </div>
+    <div class="svimg"><img src="/images/hero/hero-13.jpg" alt="" /></div>
+  </div>
+</div></div>
+
+<!-- ═══ 09 WHY THIS MATTERS ═══ -->
+<div class="sw"><p class="sn">09 / Why This Matters</p>
+<div class="slide svs">
+  <div class="svi i5">
+    <div class="svc">
+      <h1>Why This<br>Matters</h1>
+      <p>Young women in India face enormous pressure — academic, social, and emotional. Yoga gives them something most wellness programs don't: a practice they own. Not a test, not a grade — just breath, movement, and the knowledge that they are enough.</p>
+      <p>Mental health, confidence, and self-expression aren't extras. They're the foundation everything else is built on.</p>
+      <p class="mn">Mental Health · Confidence · Self-Expression · Girls</p>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══ 10 JOIN US ═══ -->
+<div class="sw"><p class="sn">10 / Join Us</p>
+<div class="slide" id="s10">
+  <div class="jhdr">
+    <p class="mn">Get involved</p>
+    <h1>Join Us</h1>
+  </div>
+  <div class="jgrid">
+    <div class="jcard ja">
+      <p class="mn">For Organizations</p>
+      <h2>Bring Youth for Yoga to Your Community</h2>
+      <p>Partner with us to bring Youth for Yoga programs to students in your school, district, or organization.</p>
+      <span class="jb">Partner With Us</span>
+    </div>
+    <div class="jcard jb2">
+      <p class="mn">For Donors</p>
+      <h2>Support Youth Wellness Globally</h2>
+      <p>Your support helps us reach more young women with the tools they need to thrive — mentally, physically, and socially.</p>
+      <span class="jb">Support Our Mission</span>
+    </div>
+    <div class="jcard jc">
+      <p class="mn">For Teens</p>
+      <h2>Become a Youth Wellness Leader</h2>
+      <p>Join Youth for Yoga and be part of a global movement of young people using yoga to create real change.</p>
+      <span class="jb">Get Involved</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══ 11 TEAM ═══ -->
+<div class="sw"><p class="sn">11 / Who We Are</p>
+<div class="slide" id="s11">
+  <div class="thdr">
+    <p class="mn">Meet the youth leaders</p>
+    <h2>Who We Are</h2>
+  </div>
+  <div class="tgrid">
+    <div class="tmem">
+      <p class="tn">Rushil Chopra</p>
+      <p class="mn tr">Co-Founder</p>
+      <p class="tb">Rushil is a teen wellness advocate who believes yoga has the power to transform lives. After seeing firsthand how stress and self-doubt affect young people, he co-founded Youth for Yoga to bring accessible, meaningful practice to students who need it most. In 2026, he led the team to Ferozabad, India — teaching yoga to 500+ girls across 5 schools. His vision: a world where every young person has the tools to feel grounded, confident, and heard.</p>
+    </div>
+    <div class="tmem">
+      <p class="tn">Kashni Chopra</p>
+      <p class="mn tr">Co-Founder</p>
+      <p class="tb">Kashni co-founded Youth for Yoga driven by a deep belief in the connection between movement and self-expression. She has seen how yoga creates space for young women to discover their strength — not just physically, but emotionally. On the India Journey 2026, she worked alongside students and families in Ferozabad, building bonds that went far beyond the mat. Her vision: to grow Youth for Yoga into a movement that reaches girls everywhere, starting from the inside out.</p>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══ 12 VISION ═══ -->
+<div class="sw"><p class="sn">12 / Our Vision</p>
+<div class="slide" id="s12">
+  <div class="vc">
+    <div class="vt">
+      <p class="mn">Our Vision</p>
+      <h2>We didn't start Youth for Yoga just to teach yoga.</h2>
+      <p>We started it because we saw how many young people are struggling silently — with stress, pressure, and lack of emotional support. Our vision: a youth-led global movement where teens don't just learn wellness — they lead it.</p>
+    </div>
+    <div class="vgs">
+      <div class="vg">
+        <p class="mn">01</p>
+        <p>Train youth leaders to bring wellness programs to their own communities</p>
+      </div>
+      <div class="vg">
+        <p class="mn">02</p>
+        <p>Expand into new underserved communities across the globe</p>
+      </div>
+      <div class="vg">
+        <p class="mn">03</p>
+        <p>Bring mindfulness and emotional wellness into schools worldwide</p>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══ 13 WHAT WE DO ═══ -->
+<div class="sw"><p class="sn">13 / What We Do</p>
+<div class="slide" id="s13">
+  <h2>What We Do</h2>
+  <div class="skbox">
+    <div class="sk"><p class="mn">01</p><p>Teaching Yoga</p></div>
+    <div class="sk"><p class="mn">02</p><p>Student Home Visits</p></div>
+    <div class="sk"><p class="mn">03</p><p>Community Building</p></div>
+    <div class="sk"><p class="mn">04</p><p>Cultural Exchange</p></div>
+    <div class="sk"><p class="mn">05</p><p>Ferozabad, India</p></div>
+    <div class="sk"><p class="mn">06</p><p>Youth Leadership</p></div>
+    <div class="sk"><p class="mn">07</p><p>Mind &amp; Movement</p></div>
+    <div class="sk"><p class="mn">08</p><p>Taj Mahal Visit</p></div>
+  </div>
+</div></div>
+
+<!-- ═══ 14 PARTNERS ═══ -->
+<div class="sw"><p class="sn">14 / Partners</p>
+<div class="slide" id="s14">
+  <p class="plbl">Made possible by our partners</p>
+  <div class="pns">
+    <span class="pn">Yoga Without Borders</span>
+    <span class="pn">EduGirls</span>
+    <span class="pn">Rainbow Kids Yoga</span>
+    <span class="pn">Dau Dayal School</span>
+    <span class="pn">Yoga Gives Back</span>
+  </div>
+  <div class="pty">
+    <p>A heartfelt thank you to <strong>Yoga Without Borders</strong>, <strong>EduGirls</strong>, <strong>Rainbow Kids Yoga</strong>, <strong>Dau Dayal School</strong>, and <strong>Yoga Gives Back</strong> — your trust, guidance, and open doors made this journey possible. We couldn't have done any of this without you.</p>
+  </div>
+</div></div>
+
+<!-- ═══ 15 CONTACT ═══ -->
+<div class="sw"><p class="sn">15 / Get Involved</p>
+<div class="slide" id="s15">
+  <div class="cmain">
+    <div class="cmain-inner">
+      <h1>Get Involved</h1>
+      <p>Youth for Yoga is a youth-led movement — and it grows through people like you. Whether you want to volunteer, support our mission, collaborate, or just say hello, we'd love to hear from you.</p>
+      <p class="dim">Every email, every connection, every conversation brings us one step closer to reaching the next 500 students.</p>
+    </div>
+  </div>
+  <div class="cbot">
+    <div class="ccard">
+      <span class="cchdr">Reach Out</span>
+      <p class="mn">rushil@youthforyoga.org</p>
+      <p class="mn">youthforyoga.org ↗</p>
+      <p class="mn dim">Youth for Yoga · India Journey 2026</p>
+    </div>
+    <div class="ccard">
+      <span class="cchdr">Join the Movement</span>
+      <p class="mn dim">Volunteer · Donate · Spread the Word</p>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══ 16 INDIA JOURNEY PHOTO COLLAGE ═══ -->
+<div class="sw"><p class="sn">16 / India Journey</p>
+<div class="slide" id="s16">
+  <div class="collage-bg"></div>
+  <div class="collage-inner">
+    <div class="collage-left">
+      <div class="collage-label">
+        <p class="mn">India Journey 2026</p>
+        <h2>Moments That<br>Matter</h2>
+        <p class="collage-sub">Five schools. Five hundred students.<br>One unforgettable journey.</p>
+      </div>
+      <div class="collage-col-imgs">
+        <div class="cimg cimg-tall">
+          <img src="/images/gallery/general/810C1E1B-1711-4DDE-8C99-A3E4EF1C5D36.jpeg" alt="Founders" style="object-position: center top;" />
+        </div>
+        <div class="cimg cimg-square">
+          <img src="/images/gallery/entering-school/IMG_4234.jpg" alt="Dau Dayal School" style="object-position: center 20%;" />
+        </div>
+      </div>
+    </div>
+    <div class="collage-right">
+      <div class="cimg cimg-wide">
+        <img src="/images/gallery/general/FF2044FD-3D72-455C-BFA1-945DBBD612A4.jpeg" alt="M.K.D.S.S. Butterfly Mural" />
+        <span class="cimg-caption">M.K.D.S.S. Higher Secondary School</span>
+      </div>
+      <div class="collage-row-imgs">
+        <div class="cimg cimg-med">
+          <img src="/images/gallery/general/19C82155-908F-49FB-97DA-D8C4E1F4F82E.jpeg" alt="Yoga circle" />
+        </div>
+        <div class="cimg cimg-med">
+          <img src="/images/gallery/general/F7A7C246-DFC8-43E4-9F86-EC7CE94F4151.jpeg" alt="Blue uniform students" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══ 17 WEBSITE PREVIEW — HERO ═══ -->
+<div class="sw"><p class="sn">17 / Website Preview — Hero</p>
+<div class="slide" id="swp1">
+  <div class="wp-frame">
+    <div class="wp-browser-bar">
+      <div class="wp-dots"><span></span><span></span><span></span></div>
+      <div class="wp-url"><p class="mn">youthforyoga.org</p></div>
+    </div>
+    <div class="wp-screen">
+      <img src="/images/slides-hero.png" alt="Youth for Yoga website hero" />
+    </div>
+  </div>
+  <div class="wp-label">
+    <p class="mn">youthforyoga.org</p>
+    <h2>Visit Us Online</h2>
+  </div>
+</div></div>
+
+<!-- ═══ 18 WEBSITE PREVIEW — MISSION ═══ -->
+<div class="sw"><p class="sn">18 / Website Preview — Mission</p>
+<div class="slide" id="swp2">
+  <div class="wp-frame">
+    <div class="wp-browser-bar">
+      <div class="wp-dots"><span></span><span></span><span></span></div>
+      <div class="wp-url"><p class="mn">youthforyoga.org</p></div>
+    </div>
+    <div class="wp-screen">
+      <img src="/images/slides-mission.png" alt="Youth for Yoga mission section" />
+    </div>
+  </div>
+  <div class="wp-label">
+    <p class="mn">Our Mission</p>
+    <h2>Who We Are</h2>
+  </div>
+</div></div>
+
+<!-- ═══ 19 QR CODE ═══ -->
+<div class="sw"><p class="sn">19 / QR Code</p>
+<div class="slide" id="sqr">
+  <div class="qr-mandala"></div>
+  <img src="/images/logo.png" alt="Youth for Yoga" class="qr-logo" />
+  <div class="qr-inner">
+    <div class="qr-header">
+      <p class="mn">Scan to connect</p>
+      <h2>Youth&nbsp;&nbsp;for&nbsp;&nbsp;Yoga</h2>
+    </div>
+    <div class="qr-cards">
+      <div class="qr-card">
+        <div id="qr-website"></div>
+        <p class="mn qr-card-label">Our India Journey</p>
+      </div>
+      <div class="qr-card">
+        <div id="qr-instagram"></div>
+        <p class="mn qr-card-label">Instagram</p>
+      </div>
+      <div class="qr-card">
+        <div id="qr-donate"></div>
+        <p class="mn qr-card-label">Donate</p>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══ 20 CTA BUTTON ═══ -->
+<div class="sw"><p class="sn">20 / Let's Connect</p>
+<div class="slide" id="s17cta">
+  <div class="ctabox">
+    <p class="mn">Join the movement</p>
+    <h1>Get Involved</h1>
+  </div>
+</div></div>
+
+<!-- ═══ 18 FOOTER / CLOSING ═══ -->
+<div class="sw"><p class="sn">18 / Closing</p>
+<div class="slide" id="s17">
+  <div class="fc">
+    <div class="mwm" style="opacity:.05;width:50%"></div>
+    <div class="fhdr"><h1>Youth for Yoga</h1></div>
+    <div class="frow">
+      <div class="fcol">
+        <p>Navigate</p>
+        <p>Gallery</p>
+        <p>About Us</p>
+        <p>Get Involved</p>
+      </div>
+      <div class="fcol">
+        <p>Youth for Yoga</p>
+        <p>A youth-led nonprofit bringing yoga to students worldwide.</p>
+        <p>India Journey 2026</p>
+      </div>
+    </div>
+    <div class="fsoc">
+      <p class="mn">Instagram</p>
+      <p class="mn">YouTube</p>
+      <p class="mn">youthforyoga.org</p>
+    </div>
+    <div class="fcpy">
+      <p class="mn">2026</p>
+      <p class="mn">//</p>
+      <p class="mn">Youth for Yoga</p>
+    </div>
+  </div>
+</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  const qrOpts = { width: 160, height: 160, colorDark: '#1a1008', colorLight: '#fae8df', correctLevel: QRCode.CorrectLevel.H };
+  new QRCode(document.getElementById('qr-website'),   { ...qrOpts, text: 'https://yogawithoutborders.youthforyoga.org/' });
+  new QRCode(document.getElementById('qr-instagram'), { ...qrOpts, text: 'https://www.instagram.com/youthforyoga' });
+  new QRCode(document.getElementById('qr-donate'),    { ...qrOpts, text: 'https://hcb.hackclub.com/donations/start/youthforyoga' });
+</script>
+<script>
+  document.querySelectorAll('.sw').forEach(sw => {
+    const slide = sw.querySelector('.slide');
+    if (!slide) return;
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = 'Fullscreen';
+    sw.appendChild(btn);
+
+    btn.addEventListener('click', () => {
+      // Clone the slide into a fullscreen overlay so fonts/images are already loaded
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        position: fixed; inset: 0; z-index: 9999;
+        background: #000;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer;
+      `;
+      const clone = slide.cloneNode(true);
+      // Scale to fill the screen at exact aspect ratio
+      const scaleX = window.screen.width  / 1280;
+      const scaleY = window.screen.height / 720;
+      const scale  = Math.min(scaleX, scaleY);
+      clone.style.cssText += `
+        transform: scale(${scale});
+        transform-origin: center center;
+        flex-shrink: 0;
+        box-shadow: none;
+      `;
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      // Enter real browser fullscreen
+      overlay.requestFullscreen?.() || overlay.webkitRequestFullscreen?.();
+
+      // ESC or click closes
+      const close = () => {
+        document.exitFullscreen?.() || document.webkitExitFullscreen?.();
+        overlay.remove();
+      };
+      overlay.addEventListener('click', close);
+      document.addEventListener('fullscreenchange', () => {
+        if (!document.fullscreenElement) overlay.remove();
+      }, { once: true });
+    });
+  });
+</script>
+
+</body>
+</html>

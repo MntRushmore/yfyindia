@@ -60,15 +60,22 @@
     margin-bottom: 20px;
   }
 
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
   .logo {
     width: 78px;
     height: 78px;
     object-fit: contain;
+    flex-shrink: 0;
   }
 
   .org-info {
-    text-align: right;
-    line-height: 1.45;
+    text-align: left;
+    line-height: 1.4;
   }
 
   .org-name {
@@ -78,25 +85,33 @@
     color: #E8893B;
     letter-spacing: 0.5px;
     margin: 0;
+    line-height: 1.1;
+  }
+
+  .org-url {
+    font-size: 8.5pt;
+    color: #E8893B;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-top: 2px;
   }
 
   .org-tag {
     font-size: 9.5pt;
     color: #6b6b6b;
     font-style: italic;
-    margin-top: 3px;
-  }
-
-  .org-contact {
-    font-size: 8.5pt;
-    color: #555;
     margin-top: 4px;
   }
 
-  .date {
+  .header-date {
     font-size: 10.5pt;
     color: #444;
-    margin-bottom: 16px;
+    align-self: flex-start;
+    padding-top: 6px;
+  }
+
+  .salutation-block {
+    margin-bottom: 14px;
   }
 
   .salutation {
@@ -138,7 +153,7 @@
   }
   .sig-text {
     font-family: "Snell Roundhand", "Apple Chancery", "Brush Script MT", "Lucida Handwriting", cursive;
-    font-size: 26pt;
+    font-size: 20pt;
     font-style: italic;
     color: #1a3a6e;
     display: inline-block;
@@ -160,17 +175,35 @@
     margin: 2px 0 0 0;
   }
 
-  footer {
+  .contact-footer {
     position: absolute;
-    bottom: 22px;
+    bottom: 26px;
     left: 0.8in;
     right: 0.8in;
     text-align: center;
-    font-size: 8pt;
-    color: #888;
-    font-style: italic;
+    font-size: 8.75pt;
+    color: #555;
     border-top: 1px solid #eadbc8;
-    padding-top: 6px;
+    padding-top: 8px;
+    line-height: 1.5;
+  }
+
+  .contact-footer .contact-row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .contact-footer a {
+    color: #555;
+    text-decoration: none;
+  }
+
+  .contact-footer .label {
+    color: #E8893B;
+    font-weight: 600;
+    margin-right: 4px;
   }
 </style>
 </head>
@@ -179,15 +212,16 @@
     <div class="top-bar"></div>
 
     <header>
-      <img src="../public/images/logo.png" class="logo" alt="Youth for Yoga logo">
-      <div class="org-info">
-        <div class="org-name">Youth for Yoga</div>
-        <div class="org-tag">Bringing wellness, confidence, and connection to students worldwide</div>
-        <div class="org-contact">youthforyoga.org &nbsp;&middot;&nbsp; Yoga Without Borders Youth Ambassadors</div>
+      <div class="brand">
+        <img src="../public/images/logo.png" class="logo" alt="Youth for Yoga logo">
+        <div class="org-info">
+          <div class="org-name">Youth for Yoga</div>
+          <div class="org-tag">Where the power of yoga meets the energy of youth</div>
+          <div class="org-url">youthforyoga.org</div>
+        </div>
       </div>
+      <div class="header-date">April 28, 2026</div>
     </header>
-
-    <div class="date">April 28, 2026</div>
 
     <div class="salutation">Dear YWB Grant Review Committee,</div>
 
@@ -217,6 +251,14 @@
         <p class="sig-name">Kashni Chopra</p>
         <p class="sig-title">Co-Founder, Youth for Yoga</p>
         <p class="sig-title">Yoga Without Borders Youth Ambassador</p>
+      </div>
+    </div>
+
+    <div class="contact-footer">
+      <div class="contact-row">
+        <span><span class="label">Rushil:</span><a href="mailto:rushil@youthforyoga.org">rushil@youthforyoga.org</a></span>
+        <span><span class="label">Kashni:</span><a href="mailto:kashni@youthforyoga.org">kashni@youthforyoga.org</a></span>
+        <span><span class="label">Instagram:</span><a href="https://www.instagram.com/youthforyoga">@youthforyoga</a></span>
       </div>
     </div>
 

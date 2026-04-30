@@ -10,6 +10,7 @@ export default defineConfig({
         gallery: resolve(__dirname, "gallery.html"),
         contact: resolve(__dirname, "contact.html"),
         video: resolve(__dirname, "video.html"),
+        southafrica: resolve(__dirname, "southafrica.html"),
       },
     },
     assetsInclude: [

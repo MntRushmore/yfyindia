@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Youth for Yoga | Cape Town Launch</title>
+<link rel="icon" href="/images/logo.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Youth for Yoga | Cape Town Launch" />
+<meta property="og:description" content="From San Mateo to Cape Town. A youth-led wellness movement, built by students for students. Start Youth for Yoga at your school!" />
+<meta property="og:site_name" content="Youth for Yoga" />
+<meta property="og:image" content="https://youthforyoga.org/images/hero/hero-1.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://youthforyoga.org/images/hero/hero-1.jpg" />
+<meta name="twitter:title" content="Youth for Yoga | Cape Town Launch" />
+<meta name="description" content="A youth-led wellness movement launching in Cape Town. Start Youth for Yoga at your school — be one of the first 10–20 student leaders at Parklands College." />
+
+<link rel="stylesheet" href="/css/fonts.css" />
+<link rel="stylesheet" href="/css/globals.css" />
+
+<style>
+  /* ─────────── PAGE BASE ─────────── */
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "formula", sans-serif;
+  }
+
+  .mn {
+    font-family: "supply-mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  h1, h2, h3 {
+    font-family: "rader";
+    font-style: italic;
+    font-weight: 700;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  p { font-family: "formula", sans-serif; line-height: 1.5; }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { display: block; max-width: 100%; height: auto; }
+
+  ::selection { background: var(--accent1); color: var(--bg); }
+
+  /* ─────────── NAV ─────────── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.5em 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    mix-blend-mode: difference;
+    color: var(--bg);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+  }
+  .nav-logo img {
+    width: 42px; height: 42px;
+    object-fit: contain;
+    filter: invert(1);
+  }
+  .nav-logo .mn { color: var(--bg); font-size: 0.78rem; }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.7em 1.4em;
+    border: 1px solid var(--bg);
+    border-radius: 100px;
+    font-family: "supply-mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: background 0.3s, color 0.3s;
+  }
+  .nav-cta:hover {
+    background: var(--bg);
+    color: var(--fg);
+    mix-blend-mode: normal;
+  }
+
+  /* ─────────── HERO ─────────── */
+  .hero {
+    position: relative;
+    width: 100vw;
+    min-height: 100svh;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(60vw, 60vh);
+    height: min(60vw, 60vh);
+    background-image: url("/images/mandala.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-tag {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    padding: 0.5em 1em;
+    border: 1px solid var(--fg);
+    border-radius: 100px;
+    margin-bottom: 2em;
+  }
+  .hero-tag .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent1);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.4); }
+  }
+
+  .hero-header-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1400px;
+    text-align: center;
+  }
+  .hero-header h1 {
+    font-size: clamp(3.2rem, 11vw, 11rem);
+    line-height: 0.9;
+    text-align: center;
+  }
+  .hero-header-1 {
+    position: relative;
+    color: var(--accent1);
+    z-index: 1;
+  }
+  .hero-header-2 {
+    position: relative;
+    z-index: 2;
+    font-size: 0.5em;
+  }
+  .hero-header-2 h1 {
+    font-size: clamp(1.6rem, 5vw, 5rem);
+    color: var(--accent4);
+    font-weight: 300;
+    text-transform: lowercase;
+    margin: 0.2em 0;
+  }
+  .hero-header-3 {
+    position: relative;
+    z-index: 1;
+    color: var(--fg);
+  }
+
+  .hero-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 3;
+  }
+  .hero-footer-tag {
+    max-width: 320px;
+  }
+  .hero-footer-tag .mn {
+    color: var(--accent4);
+    margin-bottom: 0.7em;
+    display: block;
+  }
+  .hero-footer-tag p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--fg);
+  }
+  .hero-scroll {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+  .hero-cities {
+    text-align: right;
+  }
+  .hero-cities .mn { display: block; }
+  .hero-cities .mn.dim { color: var(--accent4); margin-bottom: 0.4em; }
+
+  /* ─────────── WHAT IS YFY ─────────── */
+  .about {
+    background: var(--fg);
+    color: var(--bg);
+    padding: 7em 2em;
+    overflow: hidden;
+    position: relative;
+  }
+  .about-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 5em;
+    align-items: center;
+  }
+  .about-img {
+    aspect-ratio: 4 / 5;
+    border-radius: 1.5em;
+    overflow: hidden;
+    background: var(--accent4);
+  }
+  .about-img img { width: 100%; height: 100%; object-fit: cover; }
+  .about-copy .mn { color: var(--accent3); margin-bottom: 1.2em; display: block; }
+  .about-copy h2 {
+    font-size: clamp(2.2rem, 5vw, 5rem);
+    color: var(--bg);
+    line-height: 0.95;
+    margin-bottom: 1em;
+  }
+  .about-copy h2 em {
+    color: var(--accent3);
+    font-style: italic;
+  }
+  .about-copy p {
+    font-size: 1.05rem;
+    color: var(--accent2);
+    line-height: 1.65;
+    margin-bottom: 1em;
+  }
+  .about-copy p:last-of-type { margin-bottom: 0; }
+  .about-stats {
+    margin-top: 2.5em;
+    padding-top: 2em;
+    border-top: 1px solid rgba(245, 224, 211, 0.2);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5em;
+  }
+  .about-stat {
+    display: flex;
+    flex-direction: column;
+  }
+  .about-stat-num {
+    font-family: "rader";
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--accent3);
+    line-height: 1;
+    margin-bottom: 0.4em;
+  }
+  .about-stat-label {
+    font-family: "supply-mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent2);
+    line-height: 1.3;
+  }
+
+  /* ─────────── SHOWCASE ─────────── */
+  .showcase {
+    padding: 8em 2em;
+    position: relative;
+  }
+  .showcase-head {
+    max-width: 1400px;
+    margin: 0 auto 5em;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 3em;
+    align-items: end;
+  }
+  .showcase-head .mn { display: block; color: var(--accent4); margin-bottom: 1em; }
+  .showcase-head h2 {
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    line-height: 0.92;
+  }
+  .showcase-head h2 em {
+    color: var(--accent1);
+    font-style: italic;
+  }
+  .showcase-head p {
+    font-size: 1.05rem;
+    color: var(--accent4);
+    line-height: 1.6;
+    max-width: 460px;
+  }
+
+  .schools {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+  }
+  .school {
+    position: relative;
+    border: 1px solid var(--fg);
+    border-radius: 1.5em;
+    overflow: hidden;
+    background: var(--bg2);
+    display: flex;
+    flex-direction: column;
+  }
+  .school-img {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--fg);
+  }
+  .school-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .school:hover .school-img img { transform: scale(1.05); }
+  .school-tag {
+    position: absolute;
+    top: 1.5em;
+    left: 1.5em;
+    z-index: 2;
+    background: var(--bg);
+    color: var(--fg);
+    padding: 0.5em 1em;
+    border-radius: 100px;
+  }
+  .school-tag .mn { font-size: 0.7rem; }
+  .school-body {
+    padding: 2em;
+  }
+  .school-body .mn { display: block; color: var(--accent4); margin-bottom: 0.6em; }
+  .school-body h3 {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    margin-bottom: 0.4em;
+  }
+  .school-tagline {
+    font-family: "rader";
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--accent4);
+    margin-bottom: 1.2em;
+    line-height: 1.2;
+  }
+  .school-desc {
+    font-size: 0.98rem;
+    color: var(--fg);
+    line-height: 1.55;
+    margin-bottom: 2em;
+  }
+  .school-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    border-top: 1px solid rgba(26, 16, 8, 0.15);
+    padding-top: 1.5em;
+  }
+  .stat-num {
+    font-family: "rader";
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--accent1);
+    line-height: 1;
+    margin-bottom: 0.2em;
+  }
+  .stat-label {
+    font-family: "supply-mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent4);
+  }
+
+  /* ─────────── WHY MATTERS ─────────── */
+  .why {
+    padding: 8em 2em;
+    background: var(--bg2);
+    position: relative;
+    overflow: hidden;
+  }
+  .why::before {
+    content: "";
+    position: absolute;
+    top: 50%; right: -10%;
+    transform: translateY(-50%);
+    width: 60vh;
+    height: 60vh;
+    background-image: url("/images/mandala.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .why-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .why-head {
+    margin-bottom: 5em;
+    max-width: 900px;
+  }
+  .why-head .mn { display: block; color: var(--accent4); margin-bottom: 1em; }
+  .why-head h2 {
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    margin-bottom: 0.6em;
+  }
+  .why-head h2 em {
+    color: var(--accent1);
+    font-style: italic;
+  }
+  .why-head p {
+    font-size: 1.1rem;
+    color: var(--accent4);
+    line-height: 1.55;
+    max-width: 600px;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+  }
+  .why-card {
+    padding: 2.5em 2em;
+    border: 1px solid var(--fg);
+    border-radius: 1.2em;
+    background: var(--bg);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .why-card:hover { transform: translateY(-8px); }
+  .why-card .mn { display: block; color: var(--accent1); margin-bottom: 1.5em; }
+  .why-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.6em;
+  }
+  .why-card p {
+    font-size: 0.98rem;
+    color: var(--accent4);
+    line-height: 1.55;
+  }
+
+  /* ─────────── SIGNUP ─────────── */
+  .signup {
+    padding: 8em 2em;
+    background: var(--fg);
+    color: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .signup::before {
+    content: "";
+    position: absolute;
+    top: -20%; left: 50%;
+    transform: translateX(-50%);
+    width: 80vh;
+    height: 80vh;
+    background-image: url("/images/mandala.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.08;
+    pointer-events: none;
+  }
+  .signup-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .signup .mn { color: var(--accent3); margin-bottom: 1.5em; display: block; }
+  .signup h2 {
+    font-size: clamp(3rem, 8vw, 7.5rem);
+    color: var(--bg);
+    margin-bottom: 0.4em;
+    line-height: 0.9;
+  }
+  .signup h2 em {
+    color: var(--accent3);
+    font-style: italic;
+  }
+  .signup-sub {
+    font-size: 1.15rem;
+    color: var(--accent2);
+    max-width: 640px;
+    margin: 0 auto 3em;
+    line-height: 1.55;
+  }
+  .form-frame {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--bg);
+    border-radius: 1.2em;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+  }
+  .form-frame iframe {
+    width: 100%;
+    height: 1180px;
+    border: 0;
+    display: block;
+  }
+  .form-fallback {
+    margin-top: 2em;
+  }
+  .form-fallback .mn { color: var(--accent3); }
+  .form-fallback a {
+    color: var(--accent3);
+    border-bottom: 1px solid var(--accent3);
+    padding-bottom: 2px;
+  }
+
+  /* ─────────── TEACHERS ─────────── */
+  .teachers {
+    padding: 8em 2em;
+    text-align: center;
+  }
+  .teachers-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .teachers .mn { display: block; color: var(--accent4); margin-bottom: 1.5em; }
+  .teachers h2 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    margin-bottom: 0.6em;
+  }
+  .teachers h2 em {
+    color: var(--accent1);
+    font-style: italic;
+  }
+  .teachers p {
+    font-size: 1.1rem;
+    color: var(--accent4);
+    line-height: 1.6;
+    margin-bottom: 2.5em;
+  }
+  .email-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    padding: 1em 1.6em;
+    border: 1px solid var(--fg);
+    border-radius: 100px;
+    font-family: "supply-mono", monospace;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+  }
+  .email-pill:hover {
+    background: var(--fg);
+    color: var(--bg);
+    transform: translateY(-2px);
+  }
+
+  /* ─────────── FOOTER ─────────── */
+  footer {
+    padding: 3em 2em 2em;
+    border-top: 1px solid rgba(26, 16, 8, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5em;
+  }
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+  }
+  .footer-logo img { width: 40px; height: 40px; object-fit: contain; }
+  .footer-logo h3 { font-size: 1.3rem; }
+  .footer-meta { color: var(--accent4); }
+  .footer-links {
+    display: flex;
+    gap: 1.5em;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    color: var(--accent4);
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--accent1); }
+
+  /* ─────────── RESPONSIVE ─────────── */
+  @media (max-width: 900px) {
+    .hero-header h1 { font-size: 22vw; }
+    .about { padding: 5em 1.5em; }
+    .about-inner { grid-template-columns: 1fr; gap: 2.5em; }
+    .about-img { aspect-ratio: 4 / 3; max-width: 480px; }
+    .about-stats { grid-template-columns: 1fr; gap: 1em; }
+    .showcase { padding: 5em 1.5em; }
+    .showcase-head { grid-template-columns: 1fr; gap: 1.5em; margin-bottom: 3em; }
+    .schools { grid-template-columns: 1fr; }
+    .why { padding: 5em 1.5em; }
+    .why-grid { grid-template-columns: 1fr; gap: 1.2em; }
+    .signup, .teachers { padding: 5em 1.5em; }
+    .hero-footer { padding: 1.5em; }
+    .hero-footer-tag { display: none; }
+    .nav { padding: 1em 1.5em; }
+    .nav-logo .mn { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─────────── NAV ─────────── -->
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png" alt="Youth for Yoga" />
+    <p class="mn">Youth for Yoga</p>
+  </a>
+  <a href="#signup" class="nav-cta">Start Youth for Yoga at your school →</a>
+</nav>
+
+<!-- ─────────── HERO ─────────── -->
+<section class="hero">
+  <div class="hero-tag">
+    <span class="dot"></span>
+    <p class="mn">Live Launch · Cape Town</p>
+  </div>
+
+  <div class="hero-header-wrapper">
+    <div class="hero-header hero-header-1">
+      <h1>San Mateo</h1>
+    </div>
+    <div class="hero-header hero-header-2">
+      <h1>to</h1>
+    </div>
+    <div class="hero-header hero-header-3">
+      <h1>Cape Town</h1>
+    </div>
+  </div>
+
+  <div class="hero-footer">
+    <div class="hero-footer-tag">
+      <p class="mn">A youth-led wellness movement</p>
+      <p>Built by students, for students. Started in California. Grew through India. Now launching in South Africa, with you.</p>
+    </div>
+    <div class="hero-scroll">
+      <p class="mn">Scroll ↓</p>
+    </div>
+    <div class="hero-cities">
+      <p class="mn dim">Founding Chapters</p>
+      <p class="mn">Serra High · San Mateo</p>
+      <p class="mn">Parklands · Cape Town</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── WHAT IS YFY ─────────── -->
+<section class="about">
+  <div class="about-inner">
+    <div class="about-img">
+      <img src="/images/hero/hero-1.jpg" alt="Youth for Yoga teaching in India" />
+    </div>
+    <div class="about-copy">
+      <p class="mn">What is Youth for Yoga?</p>
+      <h2>A youth-led movement teaching wellness, <em>by students, for students.</em></h2>
+      <p>Youth for Yoga is a nonprofit started by two high school students in California. We bring yoga, breathwork, and mindfulness into schools that need it most, and train other students to lead the sessions themselves.</p>
+      <p>It's not about being flexible or knowing the names of poses. It's about having tools to handle stress. A way to find your voice. A community that grows stronger because you're in it.</p>
+      <p>In 2026, we travelled to India and taught over 500 students across five schools in Firozabad. Now we're bringing the movement to South Africa, starting with Parklands College.</p>
+
+      <div class="about-stats">
+        <div class="about-stat">
+          <span class="about-stat-num">500+</span>
+          <span class="about-stat-label">Students Taught<br />in India</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">5</span>
+          <span class="about-stat-label">Schools<br />Visited</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">3</span>
+          <span class="about-stat-label">Countries<br />Now Connected</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── SHOWCASE ─────────── -->
+<section class="showcase">
+  <div class="showcase-head">
+    <div>
+      <p class="mn">A Showcase of Two Schools</p>
+      <h2>Where it <em>started.</em><br />Where it goes <em>next.</em></h2>
+    </div>
+    <p>Students at Serra and Parklands are stepping up to lead wellness in their communities. Different cities. Different climates. Same story.</p>
+  </div>
+
+  <div class="schools">
+    <!-- Serra -->
+    <article class="school">
+      <div class="school-img">
+        <div class="school-tag"><p class="mn">San Mateo, CA</p></div>
+        <img src="/images/partners/serra.jpg" alt="Serra High School students" />
+      </div>
+      <div class="school-body">
+        <p class="mn">Founding Chapter / 2024</p>
+        <h3>Serra High School</h3>
+        <p class="school-tagline">Where Youth for Yoga began.</p>
+        <p class="school-desc">Founded by Rushil and Kashni Chopra, the Serra chapter pioneered the model: peer-led yoga, mindfulness, and wellness sessions designed entirely by students, for students.</p>
+        <div class="school-stats">
+          <div>
+            <div class="stat-num">500+</div>
+            <p class="stat-label">Students Reached</p>
+          </div>
+          <div>
+            <div class="stat-num">5</div>
+            <p class="stat-label">Schools in India</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Parklands -->
+    <article class="school">
+      <div class="school-img">
+        <div class="school-tag"><p class="mn">Cape Town, ZA</p></div>
+        <img src="/images/partners/parklands.jpg" alt="Parklands College, Cape Town" />
+      </div>
+      <div class="school-body">
+        <p class="mn">Next Chapter / 2026</p>
+        <h3>Parklands College</h3>
+        <p class="school-tagline">Where the next chapter begins.</p>
+        <p class="school-desc">We're looking for 10 to 20 student leaders from Parklands to start the first Youth for Yoga group in South Africa. Real skills. Real leadership. Real community impact.</p>
+        <div class="school-stats">
+          <div>
+            <div class="stat-num">10–20</div>
+            <p class="stat-label">Leaders Wanted</p>
+          </div>
+          <div>
+            <div class="stat-num">Now</div>
+            <p class="stat-label">Launching</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ─────────── WHY THIS MATTERS ─────────── -->
+<section class="why">
+  <div class="why-inner">
+    <div class="why-head">
+      <p class="mn">Why It Matters</p>
+      <h2>It's not about the <em>poses.</em></h2>
+      <p>Young people everywhere deal with stress, pressure, and self-doubt. We are rarely taught how to manage it. Even though we come from different countries, these challenges are the same.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <p class="mn">01 — Confidence</p>
+        <h3>Stay calm. Stay strong.</h3>
+        <p>Breathing and mindfulness tools you carry with you for life. Manage stress before exams, before presentations, before anything.</p>
+      </div>
+      <div class="why-card">
+        <p class="mn">02 — Voice</p>
+        <h3>Find your voice.</h3>
+        <p>Lead sessions for the students around you. Discover that you have something powerful to offer your community.</p>
+      </div>
+      <div class="why-card">
+        <p class="mn">03 — Community</p>
+        <h3>Build it together.</h3>
+        <p>Real leadership. Real impact. Connect with student leaders across the world, all building the same thing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── SIGNUP ─────────── -->
+<section id="signup" class="signup">
+  <div class="signup-inner">
+    <p class="mn">The Ask</p>
+    <h2>Start Youth for Yoga at <em>your school.</em></h2>
+    <p class="signup-sub">10 to 20 student leaders from Parklands College. Starting now. Fill this out in under two minutes — we'll be in touch within a week.</p>
+
+    <div class="form-frame">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLScKY5T5rJa3mvFoaUgHeW9laFFJscejnqbXsbdL1_2NR8i9YQ/viewform?embedded=true"
+        title="Become a Youth for Yoga Leader"
+        loading="lazy">
+        Loading…
+      </iframe>
+    </div>
+
+    <p class="form-fallback"><span class="mn">Form not loading? <a href="https://forms.gle/vsGZn4GxgJTEVL1dA" target="_blank" rel="noopener">Open it in a new tab →</a></span></p>
+  </div>
+</section>
+
+<!-- ─────────── TEACHERS ─────────── -->
+<section class="teachers">
+  <div class="teachers-inner">
+    <p class="mn">For Teachers & School Leaders</p>
+    <h2>Bring it to <em>your school.</em></h2>
+    <p>If you're a teacher or school leader who would like to bring Youth for Yoga to your community, we'd love to collaborate. Real partnership. Real curriculum. Real student leaders.</p>
+    <a href="mailto:rushil@youthforyoga.org?subject=Bringing%20Youth%20for%20Yoga%20to%20our%20school" class="email-pill">
+      <span>✉</span>
+      <span>rushil@youthforyoga.org</span>
+    </a>
+  </div>
+</section>
+
+<!-- ─────────── FOOTER ─────────── -->
+<footer>
+  <div class="footer-logo">
+    <img src="/images/logo.png" alt="Youth for Yoga" />
+    <h3>Youth<em> for </em>Yoga</h3>
+  </div>
+  <p class="mn footer-meta">San Mateo · Firozabad · Cape Town</p>
+  <div class="footer-links">
+    <a class="mn" href="https://youthforyoga.org">youthforyoga.org</a>
+    <a class="mn" href="https://www.instagram.com/youthforyoga" target="_blank" rel="noopener">Instagram</a>
+    <a class="mn" href="mailto:rushil@youthforyoga.org">Email</a>
+  </div>
+</footer>
+
+</body>
+</html>

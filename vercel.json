@@ -5,6 +5,7 @@
     { "source": "/about", "destination": "/about.html" },
     { "source": "/gallery", "destination": "/gallery.html" },
     { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/video", "destination": "/video.html" }
+    { "source": "/video", "destination": "/video.html" },
+    { "source": "/southafrica", "destination": "/southafrica.html" }
   ]
 }

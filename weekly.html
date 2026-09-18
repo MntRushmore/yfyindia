@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weekly Review — Rushil Chopra</title>
+  <link rel="stylesheet" href="/css/fonts.css" />
+  <style>
+    :root {
+      --paper:  #fafafb;   /* slide surface */
+      --white:  #ffffff;   /* card surface */
+      --ink:    #0d1526;   /* headlines */
+      --ink2:   #3d4757;   /* body copy */
+      --muted:  #8a93a3;   /* labels, captions */
+      --blue:   #1d1fe0;   /* accent */
+      --blue2:  #6a6cef;   /* accent tint */
+      --wash:   #eceafe;   /* lavender wash */
+      --line:   #e6e6ec;   /* hairline */
+      --line2:  #f0f0f4;   /* faint hairline */
+      --up:     #1c7a45;   /* positive delta */
+      --down:   #b83232;   /* negative delta */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #111;
+      padding: 40px 0 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    /* ── toolbar ── */
+    .bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 40px;
+      background: #0a0a0a;
+      border-bottom: 1px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      font-family: "supply-mono", monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #555;
+      z-index: 999;
+    }
+    .bar b { color: #aaa; font-weight: 500; }
+
+    .sw { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; position: relative; }
+    .sn {
+      font-family: "supply-mono", monospace;
+      font-size: 9px;
+      color: #3a3a3a;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding-left: 2px;
+    }
+
+    /* ── BASE SLIDE ── 1280 × 720 ── */
+    .slide {
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-shrink: 0;
+      background: var(--paper);
+      color: var(--ink);
+      box-shadow: 0 8px 48px rgba(0,0,0,0.55), 0 0 0 1px #1d1d1d;
+    }
+
+    /* framing column hairlines */
+    .rails { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+    .rails::before,
+    .rails::after { content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); }
+    .rails::before { left: 56px; }
+    .rails::after  { right: 56px; }
+
+    /* soft lavender wash behind the headline */
+    .wash {
+      position: absolute; top: -18%; left: 50%; transform: translateX(-50%);
+      width: 82%; aspect-ratio: 1.7; border-radius: 50%;
+      background: radial-gradient(closest-side, var(--wash), transparent 70%);
+      z-index: 0; pointer-events: none;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1, h2, h3, p, span { font-family: "formula"; }
+    h1, h2, h3 { line-height: 0.96; letter-spacing: -0.025em; }
+    .lt { font-weight: 300; display: block; }   /* light line */
+    .hv { font-weight: 800; display: block; }   /* heavy line */
+    p  { font-weight: 400; font-size: 1.2rem; line-height: 1.45; color: var(--ink2); }
+    .mn {
+      font-family: "supply-mono";
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      line-height: 1.2;
+    }
+    .mn.acc { color: var(--blue); }
+    .it { font-family: "formula"; font-style: italic; font-weight: 400; color: var(--muted); font-size: 0.95rem; }
+
+    /* empty-state placeholder — reads as intentional, not broken */
+    .ph {
+      font-family: "supply-mono" !important;
+      font-weight: 500 !important;
+      font-size: 0.46em !important;
+      letter-spacing: 0.1em;
+      color: #aeb5c1 !important;
+      vertical-align: 0.18em;
+    }
+
+    /* eyebrow + hairline */
+    .eb { display: flex; align-items: center; gap: 1.2em; }
+    .eb::after { content: ""; height: 1px; flex: 1; background: var(--line); }
+
+    /* deltas */
+    .dl { font-family: "supply-mono"; font-size: 0.68rem; letter-spacing: 0.04em; white-space: nowrap; }
+    .dl.up   { color: var(--up); }
+    .dl.down { color: var(--down); }
+
+    /* ── shared slide frame ── */
+    .fr {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 3.2em 5em 3.6em;
+      position: relative;
+      z-index: 1;
+      gap: 2.2em;
+    }
+    .fr .head { display: flex; flex-direction: column; gap: 1.1em; }
+    .fr .head .hrow { display: flex; justify-content: space-between; align-items: center; gap: 2em; }
+    .fr .head .hrow .mn { white-space: nowrap; }
+    .fr .head h2 { font-size: 3.4rem; }
+    .fr .body { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 0; }
+    .fr .foot {
+      position: absolute; left: 5em; right: 5em; bottom: 1.5em;
+      display: flex; justify-content: space-between; align-items: baseline;
+      border-top: 1px solid var(--line2); padding-top: 1em;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 1.25em;
+      box-shadow: 0 1px 2px rgba(13,21,38,0.04);
+    }
+
+    /* ═══════════════════════════════════════
+       SLIDE 01 — X REACH
+    ═══════════════════════════════════════ */
+    #s1 .xwrap { display: flex; gap: 3em; height: 348px; }
+
+    #s1 .xleft { flex: 0 0 360px; display: flex; flex-direction: column; }
+    #s1 .xleft .big {
+      font-size: 4.3rem; font-weight: 800; line-height: 0.9; color: var(--blue);
+      font-variant-numeric: tabular-nums; letter-spacing: -0.045em; margin: 0.3em 0 0.18em;
+    }
+    #s1 .delta { font-size: 0.95rem; color: var(--muted); margin-bottom: 0.9em; }
+    #s1 .xrows { display: flex; flex-direction: column; margin-top: auto; }
+    #s1 .xrow {
+      display: flex; justify-content: space-between; align-items: baseline;
+      border-top: 1px solid var(--line); padding: 0.62em 0;
+    }
+    #s1 .xrow .rk { font-size: 1rem; color: var(--ink2); }
+    #s1 .xrow .rv { font-size: 1.3rem; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+
+    #s1 .chart { flex: 1; display: flex; flex-direction: column; gap: 1em; padding: 1.7em 1.9em 1.5em; }
+
+    /* single series, one hue, latest week highlighted, recessive axis */
+    .brow {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 18px; flex: 1; min-height: 0; padding: 0 0.5em;
+    }
+    .bcol { flex: 1; max-width: 88px; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.5em; height: 100%; }
+    .bfill { background: var(--blue2); border-radius: 4px 4px 0 0; min-height: 3px; }
+    .bcol.pk .bfill { background: var(--blue); }
+    .bval { font-family: "supply-mono"; font-size: 0.62rem; letter-spacing: 0.04em; color: var(--ink); text-align: center; height: 1em; }
+    .baxis {
+      display: flex; justify-content: space-between; gap: 18px;
+      border-top: 1px solid var(--line); padding: 0.7em 0.5em 0;
+    }
+    .baxis span { flex: 1; max-width: 88px; text-align: center; font-family: "supply-mono"; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--muted); }
+
+    /* engagement strip */
+    #s1 .estrip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1em; margin-top: 1em; }
+    #s1 .ecell { padding: 1em 1.3em; display: flex; flex-direction: column; gap: 0.45em; }
+    #s1 .ecell .erow { display: flex; align-items: baseline; gap: 0.6em; }
+    #s1 .ecell .ev { font-size: 1.7rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; }
+
+    /* ═══════════════════════════════════════
+       SLIDE 02 — EXPERTISE + ACADEMICS
+    ═══════════════════════════════════════ */
+    .rgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1em; }
+    .rcard { padding: 1.7em 1.6em; display: flex; flex-direction: column; gap: 0.8em; min-height: 276px; }
+    .rcard .stat {
+      align-self: flex-start; line-height: 1;
+      font-family: "supply-mono"; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.16em;
+      padding: 0.6em 0.95em 0.5em; border-radius: 999px;
+    }
+    .stat.done { background: #e7f2ec; color: #2c6e49; }
+    .stat.prog { background: var(--wash); color: var(--blue); }
+    .stat.ong  { background: #fdf0e6; color: #a35a1c; }
+    .rcard h3 { font-size: 1.6rem; font-weight: 800; }
+    .rcard .by { font-family: "supply-mono"; font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+    .rcard .note { font-size: 0.96rem; line-height: 1.5; }
+    .prog { display: flex; flex-direction: column; gap: 0.6em; margin-top: auto; }
+    .ptrack { height: 6px; background: #ebebf1; border-radius: 999px; overflow: hidden; }
+    .pfill  { height: 100%; background: var(--blue); border-radius: 999px; }
+    .pfill.g { background: #2c6e49; }
+    .plbl { display: flex; justify-content: space-between; font-family: "supply-mono"; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--muted); }
+
+    /* academics strip */
+    .acad { margin-top: 1.1em; display: flex; flex-direction: column; gap: 0.75em; }
+    .acad .arow { display: flex; gap: 1.1em; }
+    .acell { flex: 1; padding: 1.1em 1.5em; display: flex; flex-direction: column; gap: 0.35em; }
+    .acell .ak { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; }
+    .acell .av { font-size: 0.95rem; color: var(--ink2); line-height: 1.4; }
+    .acell.b { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .acell.b .av { color: rgba(255,255,255,0.82); }
+
+    /* ── fullscreen button ── */
+    .copy-btn {
+      position: absolute;
+      top: -2px; right: 0;
+      font-family: "supply-mono", monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #666;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 3px;
+      padding: 4px 10px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+      z-index: 10;
+    }
+    .copy-btn:hover { color: #ccc; border-color: #555; background: #1a1a1a; }
+  </style>
+</head>
+<body>
+
+<div class="bar">
+  <b>Weekly Review — Rushil Chopra</b>
+  <span>2 slides · 1280 × 720 · npm run dev → /weekly.html · edit the WEEK block at the bottom of the file</span>
+</div>
+
+<!-- ═══ 01 — X REACH ═══ -->
+<div class="sw"><p class="sn">01 / X Reach</p>
+<div class="slide" id="s1">
+  <div class="wash"></div>
+  <div class="rails"></div>
+  <div class="fr">
+    <div class="head">
+      <div class="hrow">
+        <p class="mn eb">01 / Distribution</p>
+        <span class="it"><span data-w="periodLabel">Last 28 days</span> · <span data-w="dateRange">to Sep 18</span></span>
+      </div>
+      <h2><span class="lt">What I got</span><span class="hv">done on X.</span></h2>
+    </div>
+
+    <div class="body">
+      <div class="xwrap">
+        <div class="xleft">
+          <p class="mn">Impressions · last 28 days</p>
+          <div class="big" data-w="impressions">53.3K</div>
+          <p class="delta"><span class="dl down" data-w="impressionsDelta">↓ 9.4% vs. previous 28 days</span></p>
+          <div class="xrows">
+            <div class="xrow">
+              <span class="rk">Engagement rate</span>
+              <span><span class="dl up" data-w="engagementRateDelta">↑ 79%</span>&nbsp;&nbsp;<span class="rv" data-w="engagementRate">3.1%</span></span>
+            </div>
+            <div class="xrow">
+              <span class="rk">Engagements</span>
+              <span><span class="dl up" data-w="engagementsDelta">↑ 62%</span>&nbsp;&nbsp;<span class="rv" data-w="engagements">1.6K</span></span>
+            </div>
+            <div class="xrow">
+              <span class="rk">Profile visits</span>
+              <span><span class="dl up" data-w="profileVisitsDelta">↑ 21%</span>&nbsp;&nbsp;<span class="rv" data-w="profileVisits">654</span></span>
+            </div>
+            <div class="xrow">
+              <span class="rk">Followers</span>
+              <span><span class="dl" style="color:var(--muted)" data-w="followersNote">253 verified</span>&nbsp;&nbsp;<span class="rv" data-w="followers">451</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card chart">
+          <p class="mn">Impressions by week</p>
+          <div class="brow" id="weekBars"></div>
+          <div class="baxis" id="weekAxis"></div>
+        </div>
+      </div>
+
+      <div class="estrip">
+        <div class="card ecell">
+          <p class="mn">Replies</p>
+          <div class="erow"><span class="ev" data-w="replies">246</span><span class="dl up" data-w="repliesDelta">↑ 192%</span></div>
+        </div>
+        <div class="card ecell">
+          <p class="mn">Likes</p>
+          <div class="erow"><span class="ev" data-w="likes">741</span><span class="dl up" data-w="likesDelta">↑ 104%</span></div>
+        </div>
+        <div class="card ecell">
+          <p class="mn">Reposts</p>
+          <div class="erow"><span class="ev" data-w="reposts">17</span><span class="dl up" data-w="repostsDelta">↑ 6.2%</span></div>
+        </div>
+        <div class="card ecell">
+          <p class="mn">Bookmarks</p>
+          <div class="erow"><span class="ev" data-w="bookmarks">14</span><span class="dl down" data-w="bookmarksDelta">↓ 41%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span class="it">Rushil Chopra · Weekly Review</span>
+      <span class="it">Source: X analytics</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══ 02 — EXPERTISE + ACADEMICS ═══ -->
+<div class="sw"><p class="sn">02 / Expertise &amp; Academics</p>
+<div class="slide" id="s2">
+  <div class="wash"></div>
+  <div class="rails"></div>
+  <div class="fr">
+    <div class="head">
+      <div class="hrow">
+        <p class="mn eb">02 / Expertise</p>
+        <span class="it"><span data-w="weekLabel">Week of Sep 13</span> · <span data-w="dateRange">to Sep 18</span></span>
+      </div>
+      <h2><span class="lt">What I put in</span><span class="hv">this week.</span></h2>
+    </div>
+
+    <div class="body">
+      <div class="rgrid">
+        <div class="card rcard">
+          <span class="stat done">Finished</span>
+          <h3>$100M Offers</h3>
+          <p class="by">Alex Hormozi</p>
+          <p class="note">Closed it out this week. The whole book is one idea executed well: make the offer good enough that price stops being the conversation.</p>
+          <div class="prog">
+            <div class="ptrack"><div class="pfill g" style="width:100%"></div></div>
+            <div class="plbl"><span>Complete</span><span>100%</span></div>
+          </div>
+        </div>
+
+        <div class="card rcard">
+          <span class="stat prog">Started</span>
+          <h3>Elon Musk</h3>
+          <p class="by">Walter Isaacson</p>
+          <p class="note">Opened it this week. Reading it for how decisions actually get made under pressure and constraint — not for the mythology.</p>
+          <div class="prog">
+            <div class="ptrack"><div class="pfill" data-w-width="elonProgress" style="width:8%"></div></div>
+            <div class="plbl"><span>In progress</span><span class="ph" data-w="elonProgressLabel">——</span></div>
+          </div>
+        </div>
+
+        <div class="card rcard">
+          <span class="stat ong">Ongoing</span>
+          <h3>Finance Articles</h3>
+          <p class="by">Daily reading habit</p>
+          <p class="note">Working through markets, capital allocation, and business breakdowns until the vocabulary stops being vocabulary and starts being instinct.</p>
+          <div class="prog">
+            <div class="ptrack"><div class="pfill" data-w-width="articlesProgress" style="width:55%"></div></div>
+            <div class="plbl"><span>This week</span><span class="ph" data-w="articlesLabel">—— read</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acad">
+        <p class="mn eb">Academics</p>
+        <div class="arow">
+          <div class="card acell b">
+            <span class="ak">Reading &amp; Language</span>
+            <span class="av">Finished the grade 12 level — done with the top band on the ladder.</span>
+          </div>
+          <div class="card acell">
+            <span class="ak">Everything else</span>
+            <span class="av">Placement testing still in progress across the remaining subjects.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span class="it">Rushil Chopra · Weekly Review</span>
+      <span class="it" data-w="financeTheme">Expertise &amp; Academics</span>
+    </div>
+  </div>
+</div></div>
+
+<script>
+  /* ══════════════════════════════════════════════════════════════
+     WEEK — edit this block each week, nothing else.
+     Leave a value as "" and the slide keeps its —— placeholder.
+     ══════════════════════════════════════════════════════════════ */
+  const WEEK = {
+    periodLabel:         "Last 28 days",
+    dateRange:           "to Sep 18",
+    weekLabel:           "Week of Sep 13",
+
+    // ── slide 01 · X reach (from X analytics, 28-day window) ──
+    impressions:         "53.3K",
+    impressionsDelta:    "↓ 9.4% vs. previous 28 days",
+    engagementRate:      "3.1%",
+    engagementRateDelta: "↑ 79%",
+    engagements:         "1.6K",
+    engagementsDelta:    "↑ 62%",
+    profileVisits:       "654",
+    profileVisitsDelta:  "↑ 21%",
+    followers:           "451",
+    followersNote:       "253 verified",
+
+    replies:   "246", repliesDelta:   "↑ 192%",
+    likes:     "741", likesDelta:     "↑ 104%",
+    reposts:   "17",  repostsDelta:   "↑ 6.2%",
+    bookmarks: "14",  bookmarksDelta: "↓ 41%",
+
+    // Weekly impressions trend. These values are read off the X chart,
+    // so they are approximate — overwrite with exact numbers when you have them.
+    weeks: [
+      { label: "Aug 16", value: 3600  },
+      { label: "Aug 23", value: 12500 },
+      { label: "Aug 30", value: 12700 },
+      { label: "Sep 6",  value: 12200 },
+      { label: "Sep 13", value: 13200 },
+    ],
+
+    // ── slide 02 · expertise ─────────────────────────────────
+    elonProgress:      "",   // bar width %, e.g. "12"
+    elonProgressLabel: "",   // e.g. "12%"
+    articlesProgress:  "",   // bar width %, e.g. "70"
+    articlesLabel:     "",   // e.g. "14 read"
+    financeTheme:      "",   // footer note, e.g. "Theme of the week — capital allocation"
+  };
+
+  // fill text placeholders
+  document.querySelectorAll("[data-w]").forEach(el => {
+    const v = WEEK[el.dataset.w];
+    if (v !== undefined && v !== "") {
+      el.textContent = v;
+      el.classList.remove("ph");
+    }
+  });
+
+  // fill progress-bar widths
+  document.querySelectorAll("[data-w-width]").forEach(el => {
+    const v = WEEK[el.dataset.wWidth];
+    if (v !== undefined && v !== "") el.style.width = v + "%";
+  });
+
+  // weekly impressions — single series, one hue, latest week highlighted
+  (() => {
+    const row  = document.getElementById("weekBars");
+    const axis = document.getElementById("weekAxis");
+    const data = Array.isArray(WEEK.weeks) && WEEK.weeks.length
+      ? WEEK.weeks
+      : Array.from({ length: 5 }, () => ({ label: "—", value: 0 }));
+    const max = Math.max(...data.map(d => d.value));
+    const fmt = n => n >= 1000 ? "≈" + (n / 1000).toFixed(n >= 10000 ? 0 : 1) + "k" : String(n);
+
+    data.forEach((d, i) => {
+      const latest = i === data.length - 1;
+
+      const col = document.createElement("div");
+      col.className = "bcol" + (latest ? " pk" : "");
+
+      // label the latest week only — never a number on every bar
+      const lbl = document.createElement("span");
+      lbl.className = "bval";
+      lbl.textContent = latest && d.value ? fmt(d.value) : "";
+
+      const fill = document.createElement("div");
+      fill.className = "bfill";
+      fill.style.height  = max ? Math.max(3, (d.value / max) * 100) + "%" : "16%";
+      fill.style.opacity = max ? "1" : "0.16";
+
+      col.append(lbl, fill);
+      row.appendChild(col);
+
+      const ax = document.createElement("span");
+      ax.textContent = d.label;
+      axis.appendChild(ax);
+    });
+  })();
+
+  // fullscreen presenter — same behaviour as slides.html
+  document.querySelectorAll(".sw").forEach(sw => {
+    const slide = sw.querySelector(".slide");
+    if (!slide) return;
+    const btn = document.createElement("button");
+    btn.className = "copy-btn";
+    btn.textContent = "Fullscreen";
+    sw.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+      const overlay = document.createElement("div");
+      overlay.style.cssText = `
+        position: fixed; inset: 0; z-index: 9999;
+        background: #000;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer;
+      `;
+      const clone = slide.cloneNode(true);
+      const scale = Math.min(window.screen.width / 1280, window.screen.height / 720);
+      clone.style.cssText += `
+        transform: scale(${scale});
+        transform-origin: center center;
+        flex-shrink: 0;
+        box-shadow: none;
+      `;
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.requestFullscreen?.() || overlay.webkitRequestFullscreen?.();
+
+      const close = () => {
+        document.exitFullscreen?.() || document.webkitExitFullscreen?.();
+        overlay.remove();
+      };
+      overlay.addEventListener("click", close);
+      document.addEventListener("fullscreenchange", () => {
+        if (!document.fullscreenElement) overlay.remove();
+      }, { once: true });
+    });
+  });
+</script>
+
+</body>
+</html>

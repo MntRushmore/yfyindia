@@ -7,18 +7,18 @@
   <link rel="stylesheet" href="/css/fonts.css" />
   <style>
     :root {
-      --paper:  #fafafb;   /* slide surface */
-      --white:  #ffffff;   /* card surface */
-      --ink:    #0d1526;   /* headlines */
-      --ink2:   #3d4757;   /* body copy */
-      --muted:  #8a93a3;   /* labels, captions */
-      --blue:   #1d1fe0;   /* accent */
-      --blue2:  #6a6cef;   /* accent tint */
-      --wash:   #eceafe;   /* lavender wash */
-      --line:   #e6e6ec;   /* hairline */
-      --line2:  #f0f0f4;   /* faint hairline */
-      --up:     #1c7a45;   /* positive delta */
-      --down:   #b83232;   /* negative delta */
+      --paper:  #fafafb;
+      --white:  #ffffff;
+      --ink:    #0d1526;
+      --ink2:   #3d4757;
+      --muted:  #8a93a3;
+      --blue:   #1d1fe0;
+      --blue2:  #6a6cef;
+      --wash:   #eceafe;
+      --line:   #e6e6ec;
+      --line2:  #f0f0f4;
+      --up:     #1c7a45;
+      --down:   #b83232;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -75,14 +75,12 @@
       box-shadow: 0 8px 48px rgba(0,0,0,0.55), 0 0 0 1px #1d1d1d;
     }
 
-    /* framing column hairlines */
     .rails { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
     .rails::before,
     .rails::after { content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); }
     .rails::before { left: 56px; }
     .rails::after  { right: 56px; }
 
-    /* soft lavender wash behind the headline */
     .wash {
       position: absolute; top: -18%; left: 50%; transform: translateX(-50%);
       width: 82%; aspect-ratio: 1.7; border-radius: 50%;
@@ -93,8 +91,8 @@
     /* ── TYPOGRAPHY ── */
     h1, h2, h3, p, span { font-family: "formula"; }
     h1, h2, h3 { line-height: 0.96; letter-spacing: -0.025em; }
-    .lt { font-weight: 300; display: block; }   /* light line */
-    .hv { font-weight: 800; display: block; }   /* heavy line */
+    .lt { font-weight: 300; display: block; }
+    .hv { font-weight: 800; display: block; }
     p  { font-weight: 400; font-size: 1.2rem; line-height: 1.45; color: var(--ink2); }
     .mn {
       font-family: "supply-mono";
@@ -105,10 +103,8 @@
       color: var(--muted);
       line-height: 1.2;
     }
-    .mn.acc { color: var(--blue); }
     .it { font-family: "formula"; font-style: italic; font-weight: 400; color: var(--muted); font-size: 0.95rem; }
 
-    /* empty-state placeholder — reads as intentional, not broken */
     .ph {
       font-family: "supply-mono" !important;
       font-weight: 500 !important;
@@ -118,11 +114,9 @@
       vertical-align: 0.18em;
     }
 
-    /* eyebrow + hairline */
     .eb { display: flex; align-items: center; gap: 1.2em; }
     .eb::after { content: ""; height: 1px; flex: 1; background: var(--line); }
 
-    /* deltas */
     .dl { font-family: "supply-mono"; font-size: 0.68rem; letter-spacing: 0.04em; white-space: nowrap; }
     .dl.up   { color: var(--up); }
     .dl.down { color: var(--down); }
@@ -132,10 +126,10 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      padding: 3.2em 5em 3.6em;
+      padding: 3.4em 5em 3.6em;
       position: relative;
       z-index: 1;
-      gap: 2.2em;
+      gap: 2.4em;
     }
     .fr .head { display: flex; flex-direction: column; gap: 1.1em; }
     .fr .head .hrow { display: flex; justify-content: space-between; align-items: center; gap: 2em; }
@@ -155,53 +149,42 @@
       box-shadow: 0 1px 2px rgba(13,21,38,0.04);
     }
 
-    /* ═══════════════════════════════════════
-       SLIDE 01 — X REACH
-    ═══════════════════════════════════════ */
-    #s1 .xwrap { display: flex; gap: 3em; height: 348px; }
+    /* ═══ SLIDE 01 — X ═══ */
+    #s1 .xwrap { display: flex; gap: 3.5em; height: 344px; }
 
-    #s1 .xleft { flex: 0 0 360px; display: flex; flex-direction: column; }
+    #s1 .xleft { flex: 0 0 350px; display: flex; flex-direction: column; }
     #s1 .xleft .big {
-      font-size: 4.3rem; font-weight: 800; line-height: 0.9; color: var(--blue);
-      font-variant-numeric: tabular-nums; letter-spacing: -0.045em; margin: 0.3em 0 0.18em;
+      font-size: 4.6rem; font-weight: 800; line-height: 0.9; color: var(--blue);
+      font-variant-numeric: tabular-nums; letter-spacing: -0.045em; margin: 0.32em 0 0.2em;
     }
-    #s1 .delta { font-size: 0.95rem; color: var(--muted); margin-bottom: 0.9em; }
+    #s1 .delta { margin-bottom: 1.4em; }
     #s1 .xrows { display: flex; flex-direction: column; margin-top: auto; }
     #s1 .xrow {
       display: flex; justify-content: space-between; align-items: baseline;
-      border-top: 1px solid var(--line); padding: 0.62em 0;
+      border-top: 1px solid var(--line); padding: 0.78em 0;
     }
-    #s1 .xrow .rk { font-size: 1rem; color: var(--ink2); }
-    #s1 .xrow .rv { font-size: 1.3rem; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+    #s1 .xrow .rk { font-size: 1.02rem; color: var(--ink2); }
+    #s1 .xrow .rv { font-size: 1.32rem; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
 
-    #s1 .chart { flex: 1; display: flex; flex-direction: column; gap: 1em; padding: 1.7em 1.9em 1.5em; }
+    #s1 .chart { flex: 1; display: flex; flex-direction: column; gap: 1.1em; padding: 1.8em 2em 1.6em; }
 
-    /* single series, one hue, latest week highlighted, recessive axis */
     .brow {
       display: flex; align-items: flex-end; justify-content: space-between;
-      gap: 18px; flex: 1; min-height: 0; padding: 0 0.5em;
+      gap: 20px; flex: 1; min-height: 0; padding: 0 0.5em;
     }
-    .bcol { flex: 1; max-width: 88px; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.5em; height: 100%; }
+    .bcol { flex: 1; max-width: 84px; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.5em; height: 100%; }
     .bfill { background: var(--blue2); border-radius: 4px 4px 0 0; min-height: 3px; }
     .bcol.pk .bfill { background: var(--blue); }
     .bval { font-family: "supply-mono"; font-size: 0.62rem; letter-spacing: 0.04em; color: var(--ink); text-align: center; height: 1em; }
     .baxis {
-      display: flex; justify-content: space-between; gap: 18px;
-      border-top: 1px solid var(--line); padding: 0.7em 0.5em 0;
+      display: flex; justify-content: space-between; gap: 20px;
+      border-top: 1px solid var(--line); padding: 0.75em 0.5em 0;
     }
-    .baxis span { flex: 1; max-width: 88px; text-align: center; font-family: "supply-mono"; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--muted); }
+    .baxis span { flex: 1; max-width: 84px; text-align: center; font-family: "supply-mono"; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--muted); }
 
-    /* engagement strip */
-    #s1 .estrip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1em; margin-top: 1em; }
-    #s1 .ecell { padding: 1em 1.3em; display: flex; flex-direction: column; gap: 0.45em; }
-    #s1 .ecell .erow { display: flex; align-items: baseline; gap: 0.6em; }
-    #s1 .ecell .ev { font-size: 1.7rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; }
-
-    /* ═══════════════════════════════════════
-       SLIDE 02 — EXPERTISE + ACADEMICS
-    ═══════════════════════════════════════ */
-    .rgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1em; }
-    .rcard { padding: 1.7em 1.6em; display: flex; flex-direction: column; gap: 0.8em; min-height: 276px; }
+    /* ═══ SLIDE 02 — READING ═══ */
+    .rgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3em; }
+    .rcard { padding: 2.1em 1.9em; display: flex; flex-direction: column; gap: 1em; min-height: 330px; }
     .rcard .stat {
       align-self: flex-start; line-height: 1;
       font-family: "supply-mono"; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.16em;
@@ -210,23 +193,35 @@
     .stat.done { background: #e7f2ec; color: #2c6e49; }
     .stat.prog { background: var(--wash); color: var(--blue); }
     .stat.ong  { background: #fdf0e6; color: #a35a1c; }
-    .rcard h3 { font-size: 1.6rem; font-weight: 800; }
+    .rcard h3 { font-size: 1.7rem; font-weight: 800; }
     .rcard .by { font-family: "supply-mono"; font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
-    .rcard .note { font-size: 0.96rem; line-height: 1.5; }
+    .rcard .note { font-size: 1.02rem; line-height: 1.5; }
     .prog { display: flex; flex-direction: column; gap: 0.6em; margin-top: auto; }
     .ptrack { height: 6px; background: #ebebf1; border-radius: 999px; overflow: hidden; }
     .pfill  { height: 100%; background: var(--blue); border-radius: 999px; }
     .pfill.g { background: #2c6e49; }
     .plbl { display: flex; justify-content: space-between; font-family: "supply-mono"; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--muted); }
 
-    /* academics strip */
-    .acad { margin-top: 1.1em; display: flex; flex-direction: column; gap: 0.75em; }
-    .acad .arow { display: flex; gap: 1.1em; }
-    .acell { flex: 1; padding: 1.1em 1.5em; display: flex; flex-direction: column; gap: 0.35em; }
-    .acell .ak { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; }
-    .acell .av { font-size: 0.95rem; color: var(--ink2); line-height: 1.4; }
-    .acell.b { background: var(--blue); border-color: var(--blue); color: #fff; }
-    .acell.b .av { color: rgba(255,255,255,0.82); }
+    /* ═══ SLIDE 03 — SCHOOL ═══ */
+    .sgrid { display: flex; gap: 1.3em; }
+    .scard { flex: 1; padding: 2.4em 2.1em; display: flex; flex-direction: column; gap: 1em; min-height: 300px; }
+    .scard .stat {
+      align-self: flex-start; line-height: 1;
+      font-family: "supply-mono"; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.16em;
+      padding: 0.6em 0.95em 0.5em; border-radius: 999px;
+      background: #e7f2ec; color: #2c6e49;
+    }
+    .scard h3 { font-size: 2.1rem; font-weight: 800; }
+    .scard .note { font-size: 1.08rem; line-height: 1.5; }
+    .scard .lvl {
+      margin-top: auto; font-family: "supply-mono"; font-size: 0.68rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+      border-top: 1px solid var(--line); padding-top: 1.1em;
+    }
+    .scard.b { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .scard.b .note { color: rgba(255,255,255,0.85); }
+    .scard.b .stat { background: rgba(255,255,255,0.16); color: #fff; }
+    .scard.b .lvl  { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.25); }
 
     /* ── fullscreen button ── */
     .copy-btn {
@@ -252,41 +247,41 @@
 
 <div class="bar">
   <b>Weekly Review — Rushil Chopra</b>
-  <span>2 slides · 1280 × 720 · npm run dev → /weekly.html · edit the WEEK block at the bottom of the file</span>
+  <span>3 slides · 1280 × 720 · npm run dev → /weekly.html · edit the WEEK block at the bottom of the file</span>
 </div>
 
-<!-- ═══ 01 — X REACH ═══ -->
-<div class="sw"><p class="sn">01 / X Reach</p>
+<!-- ═══ 01 — X ═══ -->
+<div class="sw"><p class="sn">01 / X</p>
 <div class="slide" id="s1">
   <div class="wash"></div>
   <div class="rails"></div>
   <div class="fr">
     <div class="head">
       <div class="hrow">
-        <p class="mn eb">01 / Distribution</p>
+        <p class="mn eb">01 / X</p>
         <span class="it"><span data-w="periodLabel">Last 28 days</span> · <span data-w="dateRange">to Sep 18</span></span>
       </div>
-      <h2><span class="lt">What I got</span><span class="hv">done on X.</span></h2>
+      <h2><span class="lt">How I did</span><span class="hv">on X.</span></h2>
     </div>
 
     <div class="body">
       <div class="xwrap">
         <div class="xleft">
-          <p class="mn">Impressions · last 28 days</p>
+          <p class="mn">Impressions</p>
           <div class="big" data-w="impressions">53.3K</div>
-          <p class="delta"><span class="dl down" data-w="impressionsDelta">↓ 9.4% vs. previous 28 days</span></p>
+          <p class="delta"><span class="dl down" data-w="impressionsDelta">↓ 9.4% from the 28 days before</span></p>
           <div class="xrows">
             <div class="xrow">
               <span class="rk">Engagement rate</span>
               <span><span class="dl up" data-w="engagementRateDelta">↑ 79%</span>&nbsp;&nbsp;<span class="rv" data-w="engagementRate">3.1%</span></span>
             </div>
             <div class="xrow">
-              <span class="rk">Engagements</span>
-              <span><span class="dl up" data-w="engagementsDelta">↑ 62%</span>&nbsp;&nbsp;<span class="rv" data-w="engagements">1.6K</span></span>
+              <span class="rk">Likes</span>
+              <span><span class="dl up" data-w="likesDelta">↑ 104%</span>&nbsp;&nbsp;<span class="rv" data-w="likes">741</span></span>
             </div>
             <div class="xrow">
-              <span class="rk">Profile visits</span>
-              <span><span class="dl up" data-w="profileVisitsDelta">↑ 21%</span>&nbsp;&nbsp;<span class="rv" data-w="profileVisits">654</span></span>
+              <span class="rk">Replies</span>
+              <span><span class="dl up" data-w="repliesDelta">↑ 192%</span>&nbsp;&nbsp;<span class="rv" data-w="replies">246</span></span>
             </div>
             <div class="xrow">
               <span class="rk">Followers</span>
@@ -301,46 +296,27 @@
           <div class="baxis" id="weekAxis"></div>
         </div>
       </div>
-
-      <div class="estrip">
-        <div class="card ecell">
-          <p class="mn">Replies</p>
-          <div class="erow"><span class="ev" data-w="replies">246</span><span class="dl up" data-w="repliesDelta">↑ 192%</span></div>
-        </div>
-        <div class="card ecell">
-          <p class="mn">Likes</p>
-          <div class="erow"><span class="ev" data-w="likes">741</span><span class="dl up" data-w="likesDelta">↑ 104%</span></div>
-        </div>
-        <div class="card ecell">
-          <p class="mn">Reposts</p>
-          <div class="erow"><span class="ev" data-w="reposts">17</span><span class="dl up" data-w="repostsDelta">↑ 6.2%</span></div>
-        </div>
-        <div class="card ecell">
-          <p class="mn">Bookmarks</p>
-          <div class="erow"><span class="ev" data-w="bookmarks">14</span><span class="dl down" data-w="bookmarksDelta">↓ 41%</span></div>
-        </div>
-      </div>
     </div>
 
     <div class="foot">
       <span class="it">Rushil Chopra · Weekly Review</span>
-      <span class="it">Source: X analytics</span>
+      <span class="it">From X analytics</span>
     </div>
   </div>
 </div></div>
 
-<!-- ═══ 02 — EXPERTISE + ACADEMICS ═══ -->
-<div class="sw"><p class="sn">02 / Expertise &amp; Academics</p>
+<!-- ═══ 02 — READING ═══ -->
+<div class="sw"><p class="sn">02 / Reading</p>
 <div class="slide" id="s2">
   <div class="wash"></div>
   <div class="rails"></div>
   <div class="fr">
     <div class="head">
       <div class="hrow">
-        <p class="mn eb">02 / Expertise</p>
-        <span class="it"><span data-w="weekLabel">Week of Sep 13</span> · <span data-w="dateRange">to Sep 18</span></span>
+        <p class="mn eb">02 / Reading</p>
+        <span class="it"><span data-w="weekLabel">Week of Sep 13</span></span>
       </div>
-      <h2><span class="lt">What I put in</span><span class="hv">this week.</span></h2>
+      <h2><span class="lt">What I read</span><span class="hv">this week.</span></h2>
     </div>
 
     <div class="body">
@@ -349,10 +325,10 @@
           <span class="stat done">Finished</span>
           <h3>$100M Offers</h3>
           <p class="by">Alex Hormozi</p>
-          <p class="note">Closed it out this week. The whole book is one idea executed well: make the offer good enough that price stops being the conversation.</p>
+          <p class="note">Finished it this week. It is about how to put an offer together so people want to buy it.</p>
           <div class="prog">
             <div class="ptrack"><div class="pfill g" style="width:100%"></div></div>
-            <div class="plbl"><span>Complete</span><span>100%</span></div>
+            <div class="plbl"><span>Done</span><span>100%</span></div>
           </div>
         </div>
 
@@ -360,35 +336,21 @@
           <span class="stat prog">Started</span>
           <h3>Elon Musk</h3>
           <p class="by">Walter Isaacson</p>
-          <p class="note">Opened it this week. Reading it for how decisions actually get made under pressure and constraint — not for the mythology.</p>
+          <p class="note">Just started it. I want to see how he makes decisions when things go wrong.</p>
           <div class="prog">
             <div class="ptrack"><div class="pfill" data-w-width="elonProgress" style="width:8%"></div></div>
-            <div class="plbl"><span>In progress</span><span class="ph" data-w="elonProgressLabel">——</span></div>
+            <div class="plbl"><span>Reading</span><span class="ph" data-w="elonProgressLabel">——</span></div>
           </div>
         </div>
 
         <div class="card rcard">
-          <span class="stat ong">Ongoing</span>
+          <span class="stat ong">Every week</span>
           <h3>Finance Articles</h3>
-          <p class="by">Daily reading habit</p>
-          <p class="note">Working through markets, capital allocation, and business breakdowns until the vocabulary stops being vocabulary and starts being instinct.</p>
+          <p class="by">Ongoing</p>
+          <p class="note">Reading finance articles most days to get better at the basics.</p>
           <div class="prog">
             <div class="ptrack"><div class="pfill" data-w-width="articlesProgress" style="width:55%"></div></div>
             <div class="plbl"><span>This week</span><span class="ph" data-w="articlesLabel">—— read</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="acad">
-        <p class="mn eb">Academics</p>
-        <div class="arow">
-          <div class="card acell b">
-            <span class="ak">Reading &amp; Language</span>
-            <span class="av">Finished the grade 12 level — done with the top band on the ladder.</span>
-          </div>
-          <div class="card acell">
-            <span class="ak">Everything else</span>
-            <span class="av">Placement testing still in progress across the remaining subjects.</span>
           </div>
         </div>
       </div>
@@ -396,7 +358,46 @@
 
     <div class="foot">
       <span class="it">Rushil Chopra · Weekly Review</span>
-      <span class="it" data-w="financeTheme">Expertise &amp; Academics</span>
+      <span class="it">Reading</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══ 03 — SCHOOL ═══ -->
+<div class="sw"><p class="sn">03 / School</p>
+<div class="slide" id="s3">
+  <div class="wash"></div>
+  <div class="rails"></div>
+  <div class="fr">
+    <div class="head">
+      <div class="hrow">
+        <p class="mn eb">03 / School</p>
+        <span class="it"><span data-w="weekLabel">Week of Sep 13</span></span>
+      </div>
+      <h2><span class="lt">Where I am</span><span class="hv">with school.</span></h2>
+    </div>
+
+    <div class="body">
+      <div class="sgrid">
+        <div class="card scard b">
+          <span class="stat">Done</span>
+          <h3>Reading &amp; Language</h3>
+          <p class="note">Finished the grade 12 level, so I am past the last grade they test for.</p>
+          <p class="lvl" data-w="readingLevel">Grade 12 · complete</p>
+        </div>
+
+        <div class="card scard">
+          <span class="stat" style="background:#fdf0e6;color:#a35a1c">In progress</span>
+          <h3>Everything else</h3>
+          <p class="note">Still doing placement tests for my other subjects. I will share the results once they come back.</p>
+          <p class="lvl" data-w="otherLevel">Placement testing</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span class="it">Rushil Chopra · Weekly Review</span>
+      <span class="it">School</span>
     </div>
   </div>
 </div></div>
@@ -411,25 +412,20 @@
     dateRange:           "to Sep 18",
     weekLabel:           "Week of Sep 13",
 
-    // ── slide 01 · X reach (from X analytics, 28-day window) ──
+    // ── slide 01 · X (from X analytics, 28-day window) ────────
     impressions:         "53.3K",
-    impressionsDelta:    "↓ 9.4% vs. previous 28 days",
+    impressionsDelta:    "↓ 9.4% from the 28 days before",
     engagementRate:      "3.1%",
     engagementRateDelta: "↑ 79%",
-    engagements:         "1.6K",
-    engagementsDelta:    "↑ 62%",
-    profileVisits:       "654",
-    profileVisitsDelta:  "↑ 21%",
+    likes:               "741",
+    likesDelta:          "↑ 104%",
+    replies:             "246",
+    repliesDelta:        "↑ 192%",
     followers:           "451",
     followersNote:       "253 verified",
 
-    replies:   "246", repliesDelta:   "↑ 192%",
-    likes:     "741", likesDelta:     "↑ 104%",
-    reposts:   "17",  repostsDelta:   "↑ 6.2%",
-    bookmarks: "14",  bookmarksDelta: "↓ 41%",
-
-    // Weekly impressions trend. These values are read off the X chart,
-    // so they are approximate — overwrite with exact numbers when you have them.
+    // Weekly impressions. These came off the X chart by eye, so they are
+    // rough — replace them with the exact numbers when you have them.
     weeks: [
       { label: "Aug 16", value: 3600  },
       { label: "Aug 23", value: 12500 },
@@ -438,12 +434,15 @@
       { label: "Sep 13", value: 13200 },
     ],
 
-    // ── slide 02 · expertise ─────────────────────────────────
+    // ── slide 02 · reading ───────────────────────────────────
     elonProgress:      "",   // bar width %, e.g. "12"
     elonProgressLabel: "",   // e.g. "12%"
     articlesProgress:  "",   // bar width %, e.g. "70"
     articlesLabel:     "",   // e.g. "14 read"
-    financeTheme:      "",   // footer note, e.g. "Theme of the week — capital allocation"
+
+    // ── slide 03 · school ────────────────────────────────────
+    readingLevel:      "",   // e.g. "Grade 12 · complete"
+    otherLevel:        "",   // e.g. "Math · testing this week"
   };
 
   // fill text placeholders
@@ -461,7 +460,7 @@
     if (v !== undefined && v !== "") el.style.width = v + "%";
   });
 
-  // weekly impressions — single series, one hue, latest week highlighted
+  // weekly impressions — one series, latest week highlighted
   (() => {
     const row  = document.getElementById("weekBars");
     const axis = document.getElementById("weekAxis");
@@ -477,7 +476,7 @@
       const col = document.createElement("div");
       col.className = "bcol" + (latest ? " pk" : "");
 
-      // label the latest week only — never a number on every bar
+      // label the latest week only, not every bar
       const lbl = document.createElement("span");
       lbl.className = "bval";
       lbl.textContent = latest && d.value ? fmt(d.value) : "";

@@ -62,7 +62,7 @@
       padding-left: 2px;
     }
 
-    /* ── BASE SLIDE ── 1280 × 720 ── */
+    /* ── SLIDE ── 1280 × 720 ── */
     .slide {
       width: 1280px;
       height: 720px;
@@ -82,8 +82,8 @@
     .rails::after  { right: 56px; }
 
     .wash {
-      position: absolute; top: -18%; left: 50%; transform: translateX(-50%);
-      width: 82%; aspect-ratio: 1.7; border-radius: 50%;
+      position: absolute; top: -20%; left: 50%; transform: translateX(-50%);
+      width: 80%; aspect-ratio: 1.7; border-radius: 50%;
       background: radial-gradient(closest-side, var(--wash), transparent 70%);
       z-index: 0; pointer-events: none;
     }
@@ -93,135 +93,115 @@
     h1, h2, h3 { line-height: 0.96; letter-spacing: -0.025em; }
     .lt { font-weight: 300; display: block; }
     .hv { font-weight: 800; display: block; }
-    p  { font-weight: 400; font-size: 1.2rem; line-height: 1.45; color: var(--ink2); }
+    p  { font-weight: 400; font-size: 1.1rem; line-height: 1.45; color: var(--ink2); }
     .mn {
       font-family: "supply-mono";
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       color: var(--muted);
       line-height: 1.2;
     }
-    .it { font-family: "formula"; font-style: italic; font-weight: 400; color: var(--muted); font-size: 0.95rem; }
+    .it { font-family: "formula"; font-style: italic; font-weight: 400; color: var(--muted); font-size: 0.92rem; }
 
     .ph {
       font-family: "supply-mono" !important;
       font-weight: 500 !important;
-      font-size: 0.46em !important;
+      font-size: 0.5em !important;
       letter-spacing: 0.1em;
       color: #aeb5c1 !important;
       vertical-align: 0.18em;
     }
 
-    .eb { display: flex; align-items: center; gap: 1.2em; }
+    .eb { display: flex; align-items: center; gap: 1.1em; }
     .eb::after { content: ""; height: 1px; flex: 1; background: var(--line); }
 
-    .dl { font-family: "supply-mono"; font-size: 0.68rem; letter-spacing: 0.04em; white-space: nowrap; }
+    .dl { font-family: "supply-mono"; font-size: 0.64rem; letter-spacing: 0.04em; white-space: nowrap; }
     .dl.up   { color: var(--up); }
     .dl.down { color: var(--down); }
-
-    /* ── shared slide frame ── */
-    .fr {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      padding: 3.4em 5em 3.6em;
-      position: relative;
-      z-index: 1;
-      gap: 2.4em;
-    }
-    .fr .head { display: flex; flex-direction: column; gap: 1.1em; }
-    .fr .head .hrow { display: flex; justify-content: space-between; align-items: center; gap: 2em; }
-    .fr .head .hrow .mn { white-space: nowrap; }
-    .fr .head h2 { font-size: 3.4rem; }
-    .fr .body { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 0; }
-    .fr .foot {
-      position: absolute; left: 5em; right: 5em; bottom: 1.5em;
-      display: flex; justify-content: space-between; align-items: baseline;
-      border-top: 1px solid var(--line2); padding-top: 1em;
-    }
 
     .card {
       background: var(--white);
       border: 1px solid var(--line);
-      border-radius: 1.25em;
+      border-radius: 1.2em;
       box-shadow: 0 1px 2px rgba(13,21,38,0.04);
     }
 
-    /* ═══ SLIDE 01 — X ═══ */
-    #s1 .xwrap { display: flex; gap: 3.5em; height: 344px; }
-
-    #s1 .xleft { flex: 0 0 350px; display: flex; flex-direction: column; }
-    #s1 .xleft .big {
-      font-size: 4.6rem; font-weight: 800; line-height: 0.9; color: var(--blue);
-      font-variant-numeric: tabular-nums; letter-spacing: -0.045em; margin: 0.32em 0 0.2em;
+    /* status pills */
+    .pill {
+      font-family: "supply-mono"; font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.14em;
+      padding: 0.55em 0.85em 0.45em; border-radius: 999px; line-height: 1; white-space: nowrap;
     }
-    #s1 .delta { margin-bottom: 1.4em; }
-    #s1 .xrows { display: flex; flex-direction: column; margin-top: auto; }
-    #s1 .xrow {
+    .pill.done { background: #e7f2ec; color: #2c6e49; }
+    .pill.prog { background: var(--wash);  color: var(--blue); }
+    .pill.ong  { background: #fdf0e6; color: #a35a1c; }
+
+    /* ── frame ── */
+    .fr {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 2.9em 4.2em 3.2em;
+      position: relative;
+      z-index: 1;
+      gap: 1.6em;
+    }
+    .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2em; }
+    .head h2 { font-size: 2.7rem; }
+    .head .hmeta { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5em; text-align: right; }
+    .foot {
+      position: absolute; left: 4.2em; right: 4.2em; bottom: 1.4em;
       display: flex; justify-content: space-between; align-items: baseline;
-      border-top: 1px solid var(--line); padding: 0.78em 0;
+      border-top: 1px solid var(--line2); padding-top: 0.9em;
     }
-    #s1 .xrow .rk { font-size: 1.02rem; color: var(--ink2); }
-    #s1 .xrow .rv { font-size: 1.32rem; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
 
-    #s1 .chart { flex: 1; display: flex; flex-direction: column; gap: 1.1em; padding: 1.8em 2em 1.6em; }
+    /* ── two-column body ── */
+    .grid { flex: 1; display: flex; gap: 1.2em; min-height: 0; }
+    .colL { flex: 0 0 424px; display: flex; flex-direction: column; }
+    .colR { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 1.1em; min-width: 0; }
 
-    .brow {
-      display: flex; align-items: flex-end; justify-content: space-between;
-      gap: 20px; flex: 1; min-height: 0; padding: 0 0.5em;
+    /* X card */
+    .xcard { flex: 1; padding: 1.6em 1.8em 1.4em; display: flex; flex-direction: column; gap: 0.5em; min-height: 0; }
+    .xcard .big {
+      font-size: 3.5rem; font-weight: 800; line-height: 1; color: var(--blue);
+      font-variant-numeric: tabular-nums; letter-spacing: -0.04em;
     }
-    .bcol { flex: 1; max-width: 84px; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.5em; height: 100%; }
+    .xcard .bigrow { display: flex; align-items: baseline; gap: 0.8em; flex-wrap: wrap; }
+    .xstats { display: flex; gap: 1.6em; border-top: 1px solid var(--line); padding-top: 0.9em; margin-top: 0.2em; }
+    .xstat { display: flex; flex-direction: column; gap: 0.3em; }
+    .xstat .sv { font-size: 1.25rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+    .xstat .sl { font-family: "supply-mono"; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+    /* chart — one series, latest week highlighted */
+    .chartwrap { flex: 1; display: flex; flex-direction: column; gap: 0.7em; min-height: 0; margin-top: 0.4em; }
+    .brow { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; flex: 1; min-height: 0; }
+    .bcol { flex: 1; max-width: 62px; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.4em; height: 100%; }
     .bfill { background: var(--blue2); border-radius: 4px 4px 0 0; min-height: 3px; }
     .bcol.pk .bfill { background: var(--blue); }
-    .bval { font-family: "supply-mono"; font-size: 0.62rem; letter-spacing: 0.04em; color: var(--ink); text-align: center; height: 1em; }
-    .baxis {
-      display: flex; justify-content: space-between; gap: 20px;
-      border-top: 1px solid var(--line); padding: 0.75em 0.5em 0;
-    }
-    .baxis span { flex: 1; max-width: 84px; text-align: center; font-family: "supply-mono"; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--muted); }
+    .bval { font-family: "supply-mono"; font-size: 0.56rem; color: var(--ink); text-align: center; height: 1em; }
+    .baxis { display: flex; justify-content: space-between; gap: 14px; border-top: 1px solid var(--line); padding-top: 0.55em; }
+    .baxis span { flex: 1; max-width: 62px; text-align: center; font-family: "supply-mono"; font-size: 0.56rem; letter-spacing: 0.08em; color: var(--muted); }
 
-    /* ═══ SLIDE 02 — READING ═══ */
-    .rgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3em; }
-    .rcard { padding: 2.1em 1.9em; display: flex; flex-direction: column; gap: 1em; min-height: 330px; }
-    .rcard .stat {
-      align-self: flex-start; line-height: 1;
-      font-family: "supply-mono"; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.16em;
-      padding: 0.6em 0.95em 0.5em; border-radius: 999px;
-    }
-    .stat.done { background: #e7f2ec; color: #2c6e49; }
-    .stat.prog { background: var(--wash); color: var(--blue); }
-    .stat.ong  { background: #fdf0e6; color: #a35a1c; }
-    .rcard h3 { font-size: 1.7rem; font-weight: 800; }
-    .rcard .by { font-family: "supply-mono"; font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
-    .rcard .note { font-size: 1.02rem; line-height: 1.5; }
-    .prog { display: flex; flex-direction: column; gap: 0.6em; margin-top: auto; }
-    .ptrack { height: 6px; background: #ebebf1; border-radius: 999px; overflow: hidden; }
-    .pfill  { height: 100%; background: var(--blue); border-radius: 999px; }
-    .pfill.g { background: #2c6e49; }
-    .plbl { display: flex; justify-content: space-between; font-family: "supply-mono"; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--muted); }
+    /* right-hand section cards */
+    .sec { flex: 0 0 auto; padding: 1.02em 1.5em; display: flex; flex-direction: column; gap: 0.7em; }
+    .sec.banks { flex: 0 0 auto; background: var(--blue); border-color: var(--blue); color: #fff; }
+    .sec.banks .mn { color: rgba(255,255,255,0.68); }
+    .bnums { display: flex; gap: 2.4em; }
+    .bnum { display: flex; flex-direction: column; gap: 0.25em; }
+    .bnum .bv { font-size: 2rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; }
+    .bnum .bl { font-family: "supply-mono"; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.68); }
+    .sec.banks .bline { font-size: 1rem; color: rgba(255,255,255,0.85); }
 
-    /* ═══ SLIDE 03 — SCHOOL ═══ */
-    .sgrid { display: flex; gap: 1.3em; }
-    .scard { flex: 1; padding: 2.4em 2.1em; display: flex; flex-direction: column; gap: 1em; min-height: 300px; }
-    .scard .stat {
-      align-self: flex-start; line-height: 1;
-      font-family: "supply-mono"; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.16em;
-      padding: 0.6em 0.95em 0.5em; border-radius: 999px;
-      background: #e7f2ec; color: #2c6e49;
+    .sec.rows { justify-content: flex-start; }
+    .rlist { display: flex; flex-direction: column; }
+    .rrow {
+      display: flex; align-items: center; gap: 1em;
+      border-top: 1px solid var(--line); padding: 0.6em 0;
     }
-    .scard h3 { font-size: 2.1rem; font-weight: 800; }
-    .scard .note { font-size: 1.08rem; line-height: 1.5; }
-    .scard .lvl {
-      margin-top: auto; font-family: "supply-mono"; font-size: 0.68rem;
-      letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
-      border-top: 1px solid var(--line); padding-top: 1.1em;
-    }
-    .scard.b { background: var(--blue); border-color: var(--blue); color: #fff; }
-    .scard.b .note { color: rgba(255,255,255,0.85); }
-    .scard.b .stat { background: rgba(255,255,255,0.16); color: #fff; }
-    .scard.b .lvl  { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.25); }
+    .rrow:first-child { border-top: none; padding-top: 0.15em; }
+    .rrow .rt { flex: 1; font-size: 1rem; font-weight: 500; }
+    .rrow .rd { font-size: 0.9rem; color: var(--muted); }
 
     /* ── fullscreen button ── */
     .copy-btn {
@@ -247,157 +227,125 @@
 
 <div class="bar">
   <b>Weekly Review — Rushil Chopra</b>
-  <span>3 slides · 1280 × 720 · npm run dev → /weekly.html · edit the WEEK block at the bottom of the file</span>
+  <span>1 slide · 1280 × 720 · npm run dev → /weekly.html · edit the WEEK block at the bottom of the file</span>
 </div>
 
-<!-- ═══ 01 — X ═══ -->
-<div class="sw"><p class="sn">01 / X</p>
+<div class="sw"><p class="sn">Weekly Review</p>
 <div class="slide" id="s1">
   <div class="wash"></div>
   <div class="rails"></div>
   <div class="fr">
+
     <div class="head">
-      <div class="hrow">
-        <p class="mn eb">01 / X</p>
-        <span class="it"><span data-w="periodLabel">Last 28 days</span> · <span data-w="dateRange">to Sep 18</span></span>
+      <div>
+        <p class="mn" style="margin-bottom:0.8em">Weekly Review</p>
+        <h2><span class="lt">What I got</span><span class="hv">done this week.</span></h2>
       </div>
-      <h2><span class="lt">How I did</span><span class="hv">on X.</span></h2>
+      <div class="hmeta">
+        <span class="it" data-w="weekLabel">Week of Sep 13</span>
+        <span class="mn">Rushil Chopra</span>
+      </div>
     </div>
 
-    <div class="body">
-      <div class="xwrap">
-        <div class="xleft">
-          <p class="mn">Impressions</p>
-          <div class="big" data-w="impressions">53.3K</div>
-          <p class="delta"><span class="dl down" data-w="impressionsDelta">↓ 9.4% from the 28 days before</span></p>
-          <div class="xrows">
-            <div class="xrow">
-              <span class="rk">Engagement rate</span>
-              <span><span class="dl up" data-w="engagementRateDelta">↑ 79%</span>&nbsp;&nbsp;<span class="rv" data-w="engagementRate">3.1%</span></span>
+    <div class="grid">
+
+      <!-- ── X ── -->
+      <div class="colL">
+        <div class="card xcard">
+          <p class="mn">X · last 28 days</p>
+          <div class="bigrow">
+            <span class="big" data-w="impressions">53.3K</span>
+            <span class="dl down" data-w="impressionsDelta">↓ 9.4%</span>
+          </div>
+          <p class="mn" style="letter-spacing:0.14em">Impressions</p>
+
+          <div class="chartwrap">
+            <div class="brow" id="weekBars"></div>
+            <div class="baxis" id="weekAxis"></div>
+          </div>
+
+          <div class="xstats">
+            <div class="xstat">
+              <span class="sv" data-w="engagementRate">3.1%</span>
+              <span class="sl">Engagement</span>
             </div>
-            <div class="xrow">
-              <span class="rk">Likes</span>
-              <span><span class="dl up" data-w="likesDelta">↑ 104%</span>&nbsp;&nbsp;<span class="rv" data-w="likes">741</span></span>
+            <div class="xstat">
+              <span class="sv" data-w="likes">741</span>
+              <span class="sl">Likes</span>
             </div>
-            <div class="xrow">
-              <span class="rk">Replies</span>
-              <span><span class="dl up" data-w="repliesDelta">↑ 192%</span>&nbsp;&nbsp;<span class="rv" data-w="replies">246</span></span>
+            <div class="xstat">
+              <span class="sv" data-w="replies">246</span>
+              <span class="sl">Replies</span>
             </div>
-            <div class="xrow">
-              <span class="rk">Followers</span>
-              <span><span class="dl" style="color:var(--muted)" data-w="followersNote">253 verified</span>&nbsp;&nbsp;<span class="rv" data-w="followers">451</span></span>
+            <div class="xstat">
+              <span class="sv" data-w="followers">451</span>
+              <span class="sl">Followers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── banks / reading / school ── -->
+      <div class="colR">
+
+        <div class="card sec banks">
+          <p class="mn">Banks</p>
+          <div class="bnums">
+            <div class="bnum">
+              <span class="bv" data-w="banksSpoke">6</span>
+              <span class="bl">Spoke with</span>
+            </div>
+            <div class="bnum">
+              <span class="bv" data-w="banksDeals">3</span>
+              <span class="bl">Deals</span>
+            </div>
+          </div>
+          <span class="bline" data-w="banksNote">Working through the three now.</span>
+        </div>
+
+        <div class="card sec rows">
+          <p class="mn">Reading</p>
+          <div class="rlist">
+            <div class="rrow">
+              <span class="rt">$100M Offers</span>
+              <span class="rd">Alex Hormozi</span>
+              <span class="pill done">Finished</span>
+            </div>
+            <div class="rrow">
+              <span class="rt">Elon Musk</span>
+              <span class="rd">Walter Isaacson</span>
+              <span class="pill prog">Started</span>
+            </div>
+            <div class="rrow">
+              <span class="rt">Finance articles</span>
+              <span class="rd">Most days</span>
+              <span class="pill ong">Ongoing</span>
             </div>
           </div>
         </div>
 
-        <div class="card chart">
-          <p class="mn">Impressions by week</p>
-          <div class="brow" id="weekBars"></div>
-          <div class="baxis" id="weekAxis"></div>
+        <div class="card sec rows">
+          <p class="mn">School</p>
+          <div class="rlist">
+            <div class="rrow">
+              <span class="rt">Reading &amp; Language</span>
+              <span class="rd">Past the last grade tested</span>
+              <span class="pill done">Grade 12 done</span>
+            </div>
+            <div class="rrow">
+              <span class="rt">Everything else</span>
+              <span class="rd">Results to come</span>
+              <span class="pill ong">Placement testing</span>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
 
     <div class="foot">
       <span class="it">Rushil Chopra · Weekly Review</span>
-      <span class="it">From X analytics</span>
-    </div>
-  </div>
-</div></div>
-
-<!-- ═══ 02 — READING ═══ -->
-<div class="sw"><p class="sn">02 / Reading</p>
-<div class="slide" id="s2">
-  <div class="wash"></div>
-  <div class="rails"></div>
-  <div class="fr">
-    <div class="head">
-      <div class="hrow">
-        <p class="mn eb">02 / Reading</p>
-        <span class="it"><span data-w="weekLabel">Week of Sep 13</span></span>
-      </div>
-      <h2><span class="lt">What I read</span><span class="hv">this week.</span></h2>
-    </div>
-
-    <div class="body">
-      <div class="rgrid">
-        <div class="card rcard">
-          <span class="stat done">Finished</span>
-          <h3>$100M Offers</h3>
-          <p class="by">Alex Hormozi</p>
-          <p class="note">Finished it this week. It is about how to put an offer together so people want to buy it.</p>
-          <div class="prog">
-            <div class="ptrack"><div class="pfill g" style="width:100%"></div></div>
-            <div class="plbl"><span>Done</span><span>100%</span></div>
-          </div>
-        </div>
-
-        <div class="card rcard">
-          <span class="stat prog">Started</span>
-          <h3>Elon Musk</h3>
-          <p class="by">Walter Isaacson</p>
-          <p class="note">Just started it. I want to see how he makes decisions when things go wrong.</p>
-          <div class="prog">
-            <div class="ptrack"><div class="pfill" data-w-width="elonProgress" style="width:8%"></div></div>
-            <div class="plbl"><span>Reading</span><span class="ph" data-w="elonProgressLabel">——</span></div>
-          </div>
-        </div>
-
-        <div class="card rcard">
-          <span class="stat ong">Every week</span>
-          <h3>Finance Articles</h3>
-          <p class="by">Ongoing</p>
-          <p class="note">Reading finance articles most days to get better at the basics.</p>
-          <div class="prog">
-            <div class="ptrack"><div class="pfill" data-w-width="articlesProgress" style="width:55%"></div></div>
-            <div class="plbl"><span>This week</span><span class="ph" data-w="articlesLabel">—— read</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="foot">
-      <span class="it">Rushil Chopra · Weekly Review</span>
-      <span class="it">Reading</span>
-    </div>
-  </div>
-</div></div>
-
-<!-- ═══ 03 — SCHOOL ═══ -->
-<div class="sw"><p class="sn">03 / School</p>
-<div class="slide" id="s3">
-  <div class="wash"></div>
-  <div class="rails"></div>
-  <div class="fr">
-    <div class="head">
-      <div class="hrow">
-        <p class="mn eb">03 / School</p>
-        <span class="it"><span data-w="weekLabel">Week of Sep 13</span></span>
-      </div>
-      <h2><span class="lt">Where I am</span><span class="hv">with school.</span></h2>
-    </div>
-
-    <div class="body">
-      <div class="sgrid">
-        <div class="card scard b">
-          <span class="stat">Done</span>
-          <h3>Reading &amp; Language</h3>
-          <p class="note">Finished the grade 12 level, so I am past the last grade they test for.</p>
-          <p class="lvl" data-w="readingLevel">Grade 12 · complete</p>
-        </div>
-
-        <div class="card scard">
-          <span class="stat" style="background:#fdf0e6;color:#a35a1c">In progress</span>
-          <h3>Everything else</h3>
-          <p class="note">Still doing placement tests for my other subjects. I will share the results once they come back.</p>
-          <p class="lvl" data-w="otherLevel">Placement testing</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="foot">
-      <span class="it">Rushil Chopra · Weekly Review</span>
-      <span class="it">School</span>
+      <span class="it">X numbers from X analytics</span>
     </div>
   </div>
 </div></div>
@@ -405,24 +353,18 @@
 <script>
   /* ══════════════════════════════════════════════════════════════
      WEEK — edit this block each week, nothing else.
-     Leave a value as "" and the slide keeps its —— placeholder.
+     Leave a value as "" and the slide keeps what is written in the HTML.
      ══════════════════════════════════════════════════════════════ */
   const WEEK = {
-    periodLabel:         "Last 28 days",
-    dateRange:           "to Sep 18",
-    weekLabel:           "Week of Sep 13",
+    weekLabel:        "Week of Sep 13",
 
-    // ── slide 01 · X (from X analytics, 28-day window) ────────
-    impressions:         "53.3K",
-    impressionsDelta:    "↓ 9.4% from the 28 days before",
-    engagementRate:      "3.1%",
-    engagementRateDelta: "↑ 79%",
-    likes:               "741",
-    likesDelta:          "↑ 104%",
-    replies:             "246",
-    repliesDelta:        "↑ 192%",
-    followers:           "451",
-    followersNote:       "253 verified",
+    // ── X (from X analytics, 28-day window) ──────────────────
+    impressions:      "53.3K",
+    impressionsDelta: "↓ 9.4%",
+    engagementRate:   "3.1%",
+    likes:            "741",
+    replies:          "246",
+    followers:        "451",
 
     // Weekly impressions. These came off the X chart by eye, so they are
     // rough — replace them with the exact numbers when you have them.
@@ -434,30 +376,19 @@
       { label: "Sep 13", value: 13200 },
     ],
 
-    // ── slide 02 · reading ───────────────────────────────────
-    elonProgress:      "",   // bar width %, e.g. "12"
-    elonProgressLabel: "",   // e.g. "12%"
-    articlesProgress:  "",   // bar width %, e.g. "70"
-    articlesLabel:     "",   // e.g. "14 read"
-
-    // ── slide 03 · school ────────────────────────────────────
-    readingLevel:      "",   // e.g. "Grade 12 · complete"
-    otherLevel:        "",   // e.g. "Math · testing this week"
+    // ── banks ────────────────────────────────────────────────
+    banksSpoke:       "6",
+    banksDeals:       "3",
+    banksNote:        "Working through the three now.",
   };
 
-  // fill text placeholders
+  // fill values
   document.querySelectorAll("[data-w]").forEach(el => {
     const v = WEEK[el.dataset.w];
     if (v !== undefined && v !== "") {
       el.textContent = v;
       el.classList.remove("ph");
     }
-  });
-
-  // fill progress-bar widths
-  document.querySelectorAll("[data-w-width]").forEach(el => {
-    const v = WEEK[el.dataset.wWidth];
-    if (v !== undefined && v !== "") el.style.width = v + "%";
   });
 
   // weekly impressions — one series, latest week highlighted
